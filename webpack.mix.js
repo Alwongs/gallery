@@ -12,6 +12,21 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css')
     .postCss('resources/css/app.css', 'public/css', [
-        //
+        require('tailwindcss'),
+        require('autoprefixer'),
     ]);
+
+
+// mix.js('resources/js/app.js', 'public/js')
+//     .sass('resources/sass/site/app.scss', 'public/css/site')
+//     .sass('resources/sass/admin/app.scss', 'public/css/admin');
+
+
+// module.exports = {
+//     // other configuration options
+//     stats: {
+//         children: true
+//     }
+// };
