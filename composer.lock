@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "54e5e08094a7a6fd5a36a9cc6038edc6",
+    "content-hash": "95ead8b992253cd0522d7530d125125a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -561,6 +561,58 @@
                 }
             ],
             "time": "2020-12-29T14:50:06+00:00"
+        },
+        {
+            "name": "el-factory/ip-api",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/el-factory/ip-api.git",
+                "reference": "63b67aa3401915f09c71a00fa386c0965804b5b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/el-factory/ip-api/zipball/63b67aa3401915f09c71a00fa386c0965804b5b4",
+                "reference": "63b67aa3401915f09c71a00fa386c0965804b5b4",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=7.0",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^8.5",
+                "pestphp/pest": "^2.9"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ElFactory\\IpApi\\IpApiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ElFactory\\IpApi\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A simple Laravel package to get IP address information from ip-api.com",
+            "keywords": [
+                "IP API",
+                "ip api laravel",
+                "ip api php",
+                "ip-api.com"
+            ],
+            "support": {
+                "issues": "https://github.com/el-factory/ip-api/issues",
+                "source": "https://github.com/el-factory/ip-api/tree/v1.0.1"
+            },
+            "time": "2023-07-22T16:31:23+00:00"
         },
         {
             "name": "fruitcake/laravel-cors",

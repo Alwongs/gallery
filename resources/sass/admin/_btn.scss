@@ -1,0 +1,177 @@
+.btn {
+    min-width: 100px;
+    width: fit-content;
+    padding: 6px 14px;
+    font-size: 18px;
+    display: block;
+    border: 1px solid rgba($baseText, 0.5);
+    background: $white;
+    border-radius: 4px; 
+    color: $baseText;
+    text-align: center;
+    cursor: pointer; 
+    &:hover {
+        background-color: rgba($baseText, 0.8);
+        color: $white;
+    }    
+    &:active {  
+        box-shadow: 0px 0px 5px 1px rgba(0, 200, 255, .4);
+    } 
+    @media (max-width: $mobile-max) {     
+        width: 100%;
+        padding: 16px;        
+    }      
+}
+.add-btn {
+    display: block;
+    border: 1px solid transparent;
+    border-radius: 4px; 
+    background: transparent;
+    width: 30px;
+    height: 30px; 
+    font-size: 14px;  
+}
+.cell-btn {
+    border: 1px solid transparent;
+    border-radius: 4px; 
+    background: transparent;
+    width: 30px;
+    height: 30px; 
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-green {
+    border: 1px solid $btnGreen;  
+    color: $btnGreen;  
+    &:hover {
+        background-color: $btnGreen;
+    }
+    @media (max-width: $mobile-max) {  
+        background-color: $btnGreen;
+        color: $white;        
+    }      
+}
+.btn-blue {
+    border: 1px solid $btnBlue;
+    color: $btnBlue;
+    &:hover {
+        background-color: $btnBlue;
+    }
+    @media (max-width: $mobile-max) {  
+        background-color: $btnBlue;
+        color: $white;        
+    }     
+}
+.btn-red {
+    border: 1px solid $btnRed;
+    color: $btnRed;
+    &:hover {
+        background-color: $btnRed;
+    }
+    @media (max-width: $mobile-max) {  
+        background-color: $btnRed;
+        color: $white;        
+    }     
+}
+
+.btn-icon-edit {
+    background-image:  url('../../images/icons/edit-dark.svg'); 
+    background-repeat: no-repeat;      
+    background-size: 60%; 
+    background-position: center;  
+    &:hover {
+        background-image:  url('../../images/icons/edit-light.svg');         
+    } 
+}
+.btn-icon-delete {
+    background-image:  url('../../images/icons/delete-dark.svg'); 
+    background-repeat: no-repeat;      
+    background-size: 65%; 
+    background-position: center;   
+    &:hover {
+        background-image:  url('../../images/icons/delete-light.svg'); 
+        background-size: 67%;         
+    }  
+}
+.btn-icon-postpone {
+    background-image:  url('../../images/icons/postpone-dark.svg'); 
+    background-repeat: no-repeat;      
+    background-size: 65%; 
+    background-position: center;    
+    &:hover {
+        background-image:  url('../../images/icons/postpone-light.svg');  
+                    
+    } 
+}
+
+.btn-icon-add {
+    background-image:  url('../../images/icons/add-dark.svg');
+    background-repeat: no-repeat; 
+    background-position: center;    
+    &:hover {
+        background-color: $btnGreen;
+        background-image:  url('../../images/icons/add-light.svg');              
+    }     
+}
+
+.btn-block {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 16px;
+    @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+                
+    }     
+    @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
+
+    }      
+    @media (max-width: $mobile-max) {  
+        flex-direction: column;
+    }     
+}
+
+.add-btn-group { 
+    // border: 1px solid red;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px; 
+    // width: fit-content; 
+    span {
+        cursor: pointer;
+        color: $btnGreen;
+        display: block;
+        &:hover {
+            color: lighten($btnGreen, 10);            
+        }
+    }
+    &:hover a {
+        background-color: $btnGreen;
+        // background-image:  url('../images/icons/add-light.svg'); 
+    }
+    @media (max-width: $mobile-max) {  
+        justify-content: center;  
+        width: 100%;          
+    }     
+}
+
+.btn-del {
+    border: 1px solid rgba($baseText, .4);
+    border-radius: 50%;
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    z-index: 1;
+    width: 17px;
+    height: 17px;
+    // background-image:  url('../images/icons/close-menu-dark.svg'); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+    background-size: 100%;
+    cursor: pointer;
+    &:hover {
+        background-color: $btnRed;
+    }
+}

@@ -1,0 +1,34 @@
+.top-panel {
+    background-color: #2b6e8d;
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3);
+    height: 50px;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a {
+        color: white;
+    }
+    &__home-link {    
+        text-transform: capitalize;
+        @media (max-width: $mobile-max) {  
+            display: none;   
+        }          
+    }
+    &__menu-link {
+        display: none;          
+        @media (max-width: $mobile-max) {  
+            display: block;
+            cursor: pointer;
+        }   
+    }
+    @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+        padding: 0 20px;
+    }     
+    @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
+        padding: 0 15px;
+    }           
+    @media (max-width: $mobile-max) {  
+        padding: 0 10px; 
+    }      
+}

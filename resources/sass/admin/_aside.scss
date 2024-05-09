@@ -1,0 +1,65 @@
+.aside {
+    background-color: rgb(166, 199, 207);
+    transition: 0.2s ease-in-out;
+    height: 100%;
+    width: 100%;
+    @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+        
+    }     
+    @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
+        
+    }           
+    @media (max-width: $mobile-max) {  
+        position: absolute;
+        top: 0;
+        left: -100%;
+        &._active {
+            left: 0; 
+        }
+    }  
+}
+.aside__btn-block {
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: flex-end;
+
+
+}
+.aside__btn-close-menu {
+    background-color: transparent;
+    height: 50px;
+    padding: 0 20px;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    display: none;
+    @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+        
+    }     
+    @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
+        
+    }           
+    @media (max-width: $mobile-max) {  
+        display: block;
+    } 
+}
+
+.aside-navigation {
+    margin-bottom: 50px;
+    &__title {
+        font-size: 20px;
+        padding: 0 20px;
+        margin-bottom: 10px;
+    }
+    a {
+        display: block;
+        padding: 10px 10px 10px 40px;
+        border-bottom: 1px solid rgb(100, 146, 160);
+        transition: 0.2s;
+        font-size: 18px;
+    }
+    a:hover {
+        background-color: rgb(184, 220, 230);        
+    }
+}
