@@ -59,10 +59,8 @@ class PhotoController extends Controller
 
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-
                 $newImageName = TextHelper::buildAlbumImageName($photo['title'], $image->getClientOriginalExtension());
                 $albumDirName = TextHelper::transliterate($album->title);
-
                 $path = $image->storeAs('photos/'.$albumDirName, $newImageName);
                 $photo['image'] = $path;
             } else {
@@ -126,10 +124,13 @@ class PhotoController extends Controller
             $photo->image = $path;
         }
 
+        if (empty($photo->image)) {
+            return redirect()->back()->with('status', 'Select image!'); 
+        }
+
         $photo->album_id = $request->album_id;
         $photo->title = $request->title;
         $photo->description = $request->description;
-
         $photo->update();
 
         return redirect()->route('photos.edit', compact('photo'))->with('info', 'Photo has been updated!'); 

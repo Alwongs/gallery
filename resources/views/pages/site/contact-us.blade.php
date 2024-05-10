@@ -1,12 +1,8 @@
 <x-site-layout>
-    <section class="section-banner">
-        <img src="{{ Storage::url('/site/main.jpg') }}" alt="main image" />
-        <h2 class="home-title">Ulyanovsk</h2>
+    <section class="page-banner">
+        <img src="{{ Storage::url('/static/main.jpg') }}" alt="main image" />
+        <h2 class="home-title">{{ __('message.contact_us') }}</h2>
     </section>
-
-    <header class="header">
-        <h1>{{ __('New message') }}</h1>
-    </header>
 
     <main class="main ">
         <div class="notification-block">

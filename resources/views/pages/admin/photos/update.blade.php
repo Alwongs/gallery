@@ -30,7 +30,7 @@
                 <select name="album_id" id="album">
                     <option name="default" value="" style="color:grey;" >Select an album</option>
                     @foreach($albums as $album)
-                        @if($album->id == $photo->album_id)
+                        @if(isset($photo) && $album->id == $photo->album_id)
                             <option name="album_id" value="{{ $album->id }}" selected>{{ $album->title }}</option>
                         @else
                             <option name="album_id" value="{{ $album->id }}">{{ $album->title }}</option>
@@ -57,7 +57,7 @@
             @endisset
 
             <div class="form__file-block">
-                <input id="input_file" name="image" type="file" required/>
+                <input id="input_file" name="image" type="file" />
                 <p id="error" style="color: red;"></p>
             </div>  
 

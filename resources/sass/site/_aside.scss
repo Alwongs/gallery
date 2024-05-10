@@ -1,4 +1,12 @@
 .aside {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: -100%;
+    &._active {
+        left: 0; 
+    }
+
     background-color: rgb(166, 199, 207);
     transition: 0.2s ease-in-out;
     height: 100%;
@@ -11,7 +19,6 @@
     }           
     @media (max-width: $mobile-max) {  
         position: absolute;
-        z-index: 4;
         top: 0;
         left: -100%;
         &._active {
@@ -27,6 +34,7 @@
 
 }
 .aside__btn-close-menu {
+    border: 1px solid red;
     background-color: transparent;
     height: 50px;
     padding: 0 20px;

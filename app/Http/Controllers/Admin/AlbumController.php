@@ -104,9 +104,12 @@ class AlbumController extends Controller
             $album->image = $path;
         }
 
+        if (empty($album->image)) {
+            return redirect()->back()->with('status', 'Select image!'); 
+        }
+
         $album->title = $request->title;
         $album->description = $request->description;
-
         $album->update();
 
         return redirect()->route('albums.edit', compact('album'))->with('info', 'Album has been updated!'); 

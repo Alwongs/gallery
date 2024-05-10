@@ -17,10 +17,13 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body>
-        <div class="font-sans text-gray-900 antialiased">
+        <div class="wrapper">
+            @include('includes.site.aside')
             @include('includes.site.top-panel')
 
             {{ $slot }}
+
+            @include('includes.site.footer')
         </div>
     </body>
 </html>

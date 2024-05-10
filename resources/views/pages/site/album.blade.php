@@ -1,11 +1,11 @@
 <x-site-layout>
-    <section class="section-banner">
-        <img src="{{ Storage::url('/site/main.jpg') }}" alt="main image" />
-        <h2 class="home-title">{{ $album->title }}</h2>
+    <section class="page-banner">
+        <img src="{{ Storage::url('/static/main.jpg') }}" alt="main image" />
+        <h2>{{ $album->title }}</h2>
     </section>
 
     <section class="section">
-        <div class="container">
+        <div class="page-container ">
             @if(count($album->photos) != 0)
                 <ul class="gallery-list">
                     @foreach ($album->photos as $photo)

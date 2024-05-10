@@ -40,7 +40,7 @@
             @endisset
 
             <div class="form__file-block">
-                <input id="input_file" name="image" type="file" required />
+                <input id="input_file" name="image" type="file" />
                 <p id="error" style="color: red;"></p>
             </div>  
 
