@@ -5,17 +5,7 @@
 
     <main class="main">
 
-        <div class="notification-block">
-            <x-session-status :status="session('status')" :info="session('info')" />
-
-            @if ($errors->any())
-            <ul class="request-validation-errors">
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-            @endif
-        </div>
+        @include('includes.common.notification')
 
         @if(isset($photo))
             <form class="form" action="{{ route('photos.update', $photo) }}" method="POST" enctype="multipart/form-data">

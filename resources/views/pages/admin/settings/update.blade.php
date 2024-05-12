@@ -36,7 +36,7 @@
                                 class="form-settings__element-input"
                                 type="text"
                                 name="admin_items_per_page"
-                                @if(old('admin_items_per_page', $setting->admin_items_per_page))
+                                @if($setting->admin_items_per_page)
                                     value="{{ $setting->admin_items_per_page }}"
                                 @endif
                             />
@@ -44,14 +44,14 @@
                     </div>  
 
                     <div class="form-settings__element">
-                        <label class="form-settings__element-label">Items peer page (site):</label>
+                        <label class="form-settings__element-label">Items per page (site):</label>
                         <div class="flex-connection"></div>
                         <div class="form-settings__element-input-block">
                             <input
                                 class="form-settings__element-input"
                                 type="text" 
                                 name="site_items_per_page" 
-                                @if(old('site_items_per_page', $setting->site_items_per_page)) 
+                                @if($setting->site_items_per_page) 
                                     value="{{ $setting->site_items_per_page }}" 
                                 @endif
                             />

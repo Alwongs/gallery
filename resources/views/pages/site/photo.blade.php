@@ -5,6 +5,10 @@
         <h2 class="home-title">{{ $photo->title }}</h2>
     </section>
 
+    <section class="container">
+        @include('includes.site.breadcrumbs', ['album' => $photo->album])
+    </section>
+
     <section class="section">
         <div class="page-container photo-detail">
             <h3 class="photo-detail__title">{{ $photo->title }}</h3>
@@ -17,7 +21,11 @@
                     @endif
                 </div>
                 <div class="text-container photo-detail__text">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis, veniam voluptates sequi odio expedita voluptatum culpa cum ea tempore accusamus ad tempora asperiores vitae. Officiis ex nisi tenetur eveniet? Similique?
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis, veniam voluptates sequi odio expedita voluptatum culpa cum ea tempore accusamus ad tempora asperiores vitae. Officiis ex nisi tenetur eveniet? Similique?</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis, veniam voluptates sequi odio expedita voluptatum culpa cum ea tempore accusamus ad tempora asperiores vitae. Officiis ex nisi tenetur eveniet? Similique?</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis, veniam voluptates sequi odio expedita voluptatum culpa cum ea tempore accusamus ad tempora asperiores vitae. Officiis ex nisi tenetur eveniet? Similique?</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis, veniam voluptates sequi odio expedita voluptatum culpa cum ea tempore accusamus ad tempora asperiores vitae. Officiis ex nisi tenetur eveniet? Similique?</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis, veniam voluptates sequi odio expedita voluptatum culpa cum ea tempore accusamus ad tempora asperiores vitae. Officiis ex nisi tenetur eveniet? Similique?</p>
                 </div>
             </div>
         </div>

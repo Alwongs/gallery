@@ -10,6 +10,7 @@ use ElFactory\IpApi\IpApi;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\VizitController;
 use App\Http\Requests\Message\StoreRequest;
+use App\Functions\Breadcrumbs;
 
 class MessageController extends Controller
 {
@@ -25,9 +26,11 @@ class MessageController extends Controller
         return view('pages/admin/users/message', compact('message'));
     }
 
-    public function create() {
+    public function create()
+    {
+        $breadcrumbs = Breadcrumbs::buildBreadcrumps('contact_us', 'Contact us');
 
-        return view('pages/site/contact-us');
+        return view('pages/site/contact_us', compact('breadcrumbs'));
     }
 
     public function store(StoreRequest $request) {
@@ -45,7 +48,7 @@ class MessageController extends Controller
 
             Message::create($message);
             
-            return redirect()->route('home')->with('info', 'Mesage has been sent!'); 
+            return redirect()->route('report')->with('info', 'Mesage has been sent!'); 
         }
     }
 

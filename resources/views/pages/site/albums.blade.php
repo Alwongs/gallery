@@ -1,7 +1,12 @@
 <x-site-layout>
+    
     <section class="page-banner">
         <img src="{{ Storage::url('/static/main.jpg') }}" alt="main image" />
         <h2 class="home-title">{{ __("gallery.albums") }}</h2>
+    </section>
+
+    <section class="container">
+        @include('includes.site.breadcrumbs')
     </section>
 
     <section class="section">
@@ -9,16 +14,7 @@
             @if(count($albums) != 0)
                 <ul class="gallery-list">
                     @foreach ($albums as $album)
-                        <li class="album-card">
-                            <h3 class="album-card__title">{{ $album->title }}</h3>
-                            <a class="album-card__image" href="{{ route('album', $album->id) }}">
-                                @if ($album->image)
-                                    <img src="{{ Storage::url($album->image) }}" alt="{{ $album->image }}" title="{{ $album->title }}" />
-                                @else
-                                    <img src="{{ Storage::url('/site/no-picture.jpg') }}" alt="no-picture" title="{{ $album->title }}" >
-                                @endif
-                            </a>
-                        </li>
+                        @include('cards.album')
                     @endforeach
                 </ul>
             @else
@@ -30,10 +26,5 @@
             </div>
         </div>
     </section>
-
-<!-- 
-    <div class="maintenance">
-        <img src="{{ Storage::url('/site/maintenance.jpg') }}" alt="maintenance">
-    </div> -->
 
 </x-site-layout>

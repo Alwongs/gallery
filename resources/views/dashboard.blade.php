@@ -1,8 +1,7 @@
 <x-admin-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+
+    <header class="header">
+        <h1>{{ __("dashboard") }}</h1>
+    </header>
 
 </x-admin-layout>

@@ -1,7 +1,7 @@
 <x-site-layout>
 
-    <section class="section-banner">
-        <img src="{{ Storage::url('/site/main.jpg') }}" alt="main image" />
+    <section class="page-banner">
+        <img src="{{ Storage::url('/static/main.jpg') }}" alt="main image" />
         <h2 class="home-title">Profile</h2>
     </section>
 

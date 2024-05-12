@@ -3,7 +3,17 @@
     <section class="home-page-banner">
         <!-- <img src="{{ Storage::url('/static/main.jpg') }}" alt="main image" /> -->
         <h2>Ulyanovsk</h2>
+        <a class="home-page-banner__contact-us" href="{{ route('create-message') }}">
+            {{ __("message.contact_us") }}
+        </a>
     </section>
+
+
+
+
+
+
+
 
     <section class="section-next">
         <h2 class="home-title">Ulyanovsk</h2>

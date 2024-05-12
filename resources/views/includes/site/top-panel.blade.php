@@ -26,8 +26,7 @@
             @auth
                 <a href="{{ route('profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
             @else
-                <a href="{{ route('login') }}">Login</a>   
-                <!-- <a href="{{ route('register') }}" class="">Register</a> -->
+                <a href="{{ route('login') }}">Login</a> 
             @endauth
         </div>
     </div>

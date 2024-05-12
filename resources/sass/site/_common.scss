@@ -83,6 +83,10 @@ a {
 .main {
     min-height: 100%;
     padding: 0 30px;
+    &__title {
+        text-align: center;
+        margin-bottom: 20px;
+    }
     @media (min-width: $desktop-min) and (max-width: $desktop-max) {
         padding: 0 20px;
     }     
@@ -126,4 +130,10 @@ a {
     font-size: 20px;
     font-style: italic;
     padding: 10px 0;
+}
+
+.hide-in-mobile {
+    @media (max-width: $mobile-max) {  
+        display: none;     
+    }       
 }
