@@ -15,9 +15,11 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->boolean('is_site_open', true);
-            $table->smallinteger('admin_items_per_page')->default(10);
-            $table->smallinteger('site_items_per_page')->default(10);
+            $table->string('code', 50)->unique();
+            $table->char('area', 1);
+            $table->string('category')->nullable();
+            $table->char('type', 1);
+            $table->string('value');
             $table->timestamps();
         });
     }

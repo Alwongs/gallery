@@ -15,12 +15,39 @@ class SettingSeeder extends Seeder
      */
     public function run()
     {
+        // types:
+// "T" => "text",
+// "C" => "checkbox"
+
         DB::table('settings')->insert([
             [
-                'is_site_open'       => true, 
-                'admin_items_per_page'      => 10, 
-                'site_items_per_page'   => 10,
-            ]
+                'code'        => 'admin_items_per_page', 
+                'area'        => 'A',
+                'category'    => 'pagination', 
+                'type'        => 'T',
+                'value'       => 20
+            ],
+            [
+                'code'        => 'site_items_per_page', 
+                'area'        => 'S',
+                'category'    => 'pagination', 
+                'type'        => 'T',
+                'value'       => 6
+            ],
+            [
+                'code'        => 'is_site_open', 
+                'area'        => 'S',
+                'category'    => 'access', 
+                'type'        => 'C',
+                'value'       => "Y"
+            ],
+            [
+                'code'        => 'is_develop_mode', 
+                'area'        => 'S',
+                'category'    => 'access', 
+                'type'        => 'C',
+                'value'       => "Y"
+            ],            
         ]);
     }
 }

@@ -396,6 +396,24 @@ a {
     flex: 0 0 36px;
   }
 }
+.manage-list__item-value {
+  flex: 0 0 50px;
+  height: 25px;
+}
+.manage-list__item-value input[type=text] {
+  border: 1px solid rgb(0, 83, 118);
+  height: 100%;
+  width: 100%;
+}
+.manage-list__item-value input[type=text]:focus {
+  outline: 1px solid #4492a6;
+}
+.manage-list__item-value input[type=checkbox] {
+  outline: 1px solid rgb(0, 83, 118);
+  border: none;
+  width: 20px;
+  height: 20px;
+}
 
 @media (max-width: 767px) {
   .cell__btn-block button:first-child {

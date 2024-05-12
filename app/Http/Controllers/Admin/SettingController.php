@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Setting;
 use Illuminate\Http\Request;
-use App\Http\Requests\Setting\StoreRequest;
 use Illuminate\Support\Facades\Artisan;
 
 class SettingController extends Controller
@@ -17,7 +16,8 @@ class SettingController extends Controller
      */
     public function index()
     {
-        //
+        $settings = Setting::orderBy('area', 'asc')->get();
+        return view('pages/admin/settings/manage', compact('settings'));
     }
 
     /**
@@ -27,16 +27,7 @@ class SettingController extends Controller
      */
     public function create()
     {
-        $setting = Setting::find(1);
-
-        if (!$setting) {
-
-            Artisan::call('db:seed --class=SettingSeeder');
-
-            return redirect()->route('settings.edit', 1); 
-        }
-
-        return view('pages/admin/settings/update', compact('setting'));
+        //
     }
 
     /**
@@ -69,7 +60,7 @@ class SettingController extends Controller
      */
     public function edit(Setting $setting)
     {
-        return view('pages/admin/settings/update', compact('setting'));
+        //
     }
 
     /**
@@ -79,19 +70,24 @@ class SettingController extends Controller
      * @param  \App\Models\Setting  $setting
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreRequest $request, Setting $setting)
+    public function update(Request $request, $notUsed)
     {
+        $settings = Setting::all();
+        $requestSettings = $request->settings;
 
-        if ($request->validated()) {
+        foreach ($settings as $item) {
 
-            $setting->is_site_open = $request->is_site_open == 1 ? 1 : 0;
-            $setting->admin_items_per_page = $request->admin_items_per_page;
-            $setting->site_items_per_page = $request->site_items_per_page;
-
-            $setting->update();
-
-            return redirect()->route('settings.edit', compact('setting'))->with('info', 'Success!'); 
+            if (!isset($requestSettings[$item->code])) {
+                $item->value = "N";
+            } elseif (isset($requestSettings[$item->code]) && $item->type == 'C') {
+                $item->value = "Y";
+            } else {
+                $item->value = $requestSettings[$item->code];
+            }
+            $item->update();
         }
+
+        return redirect()->route('settings.index')->with('info', 'Success!'); 
     }
 
     /**

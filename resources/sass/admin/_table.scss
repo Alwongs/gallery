@@ -115,6 +115,27 @@
             flex: 0 0 36px;        
         } 
     }
+    &__item-value {
+        flex: 0 0 50px;
+        height: 25px;
+        input {
+
+        }
+        input[type=text]  {
+            border: 1px solid $baseText;
+            height: 100%;
+            width: 100%;
+            &:focus {
+                outline: 1px solid $baseBg;
+            }
+        }
+        input[type=checkbox] {
+            outline: 1px solid $baseText;
+            border: none;
+            width: 20px;
+            height: 20px;
+        }
+    }
 }
 .cell__btn-block button:first-child {
     @media (max-width: $mobile-max) {  

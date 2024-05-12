@@ -28,7 +28,7 @@
                     <span>Photos</span>
                 </a>
 
-                <a href="{{ route('settings.create') }}">
+                <a href="{{ route('settings.index') }}">
                     <span>Settings</span>
                 </a>
             @endif

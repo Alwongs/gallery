@@ -9,5 +9,5 @@ class Setting extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['is_site_open', 'admin_items_per_page', 'site_items_per_page'];
+    protected $fillable = ['code', 'area', 'category', 'type', 'value'];
 }
