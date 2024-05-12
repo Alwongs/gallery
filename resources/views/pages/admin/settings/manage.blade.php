@@ -1,3 +1,10 @@
+@php
+    $types = [
+        "T" => "text",
+        "C" => "checkbox"
+    ];
+@endphp
+
 <x-admin-layout>
     <header class="header">
         <h1>{{ __('settings.settings') }}</h1>
@@ -32,21 +39,12 @@
                             </div>
 
                             <div class="manage-list__item-value">
-                                @if($setting->type == 'T')
-                                    <input 
-                                        type="text" 
-                                        name="settings[{{ $setting->code }}]" 
-                                        value="{{ $setting->value }}"  
-                                    />
-                                @elseif($setting->type == 'C')
-                                    <input 
-                                        type="checkbox" 
-                                        name="settings[{{ $setting->code }}]" 
-                                        @if($setting->value == "Y") 
-                                            value="Y" checked
-                                        @endif
-                                    />
-                                @endif
+                                <input 
+                                    name="settings[{{ $setting->code }}]" 
+                                    value="{{ $setting->value }}"
+                                    type="{{ $types[$setting->type] }}"
+                                    @if($setting->type == 'C' && $setting->value == "Y") checked @endif
+                                />
                             </div> 
 
                         </li>        
