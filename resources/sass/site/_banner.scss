@@ -1,5 +1,5 @@
 .home-page-banner {
-    background-image: url('../../images/static/main.jpg');
+    background-image: url('../../images/banners/main-banner-1.jpg');
     background-size: cover;
     background-position: center;
     min-height: 100vh;
@@ -8,7 +8,7 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    animation: changeBanner 15s ease infinite;
+    animation: changeBanner 20s ease infinite;
     &::after {
         position: absolute;
         left: 0;
@@ -47,17 +47,18 @@
 }
 @keyframes changeBanner {
     0% {
-        background-image: url('../../images/static/main.jpg');
+        background-image: url('../../images/banners/main-banner-1.jpg');   
     }
     50% {
-        background-image: url('../../images/static/main-2.jpg');
+        background-image: url('../../images/banners/main-banner-2.jpg');
     }
     100% {
-        background-image: url('../../images/static/main.jpg');        
+        background-image: url('../../images/banners/main-banner-1.jpg');     
     }
 }
 
 .page-banner {
+    background-image: url('../../images/banners/page-banner.jpg');
     position: relative;
     overflow: hidden;
     height: 200px;
@@ -72,12 +73,6 @@
         height: 100%;
         z-index: 2;
     }
-    // &.section-banner-posts {
-    //     height: 140px;
-    // }
-    img {
-        width: 100%;
-    }  
     h2 {
         position: absolute;
         left: 0;

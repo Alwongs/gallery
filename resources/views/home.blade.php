@@ -1,7 +1,6 @@
 <x-site-layout>
 
     <section class="home-page-banner">
-        <!-- <img src="{{ Storage::url('/static/main.jpg') }}" alt="main image" /> -->
         <h2>Ulyanovsk</h2>
         <a class="home-page-banner__contact-us" href="{{ route('create-message') }}">
             {{ __("message.contact_us") }}

@@ -951,7 +951,7 @@ select {
 }
 
 .home-page-banner {
-  background-image: url(/images/main.jpg?66fd5500f084c86454b6eb71190375c2);
+  background-image: url(/images/main-banner-1.jpg?bc14446d7aad3aa0e8217d94e6cfed5e);
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -960,7 +960,7 @@ select {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  animation: changeBanner 15s ease infinite;
+  animation: changeBanner 20s ease infinite;
 }
 .home-page-banner::after {
   position: absolute;
@@ -1003,16 +1003,17 @@ select {
 
 @keyframes changeBanner {
   0% {
-    background-image: url(/images/main.jpg?66fd5500f084c86454b6eb71190375c2);
+    background-image: url(/images/main-banner-1.jpg?bc14446d7aad3aa0e8217d94e6cfed5e);
   }
   50% {
-    background-image: url(/images/main-2.jpg?647999db16eea2bb171018f0daaf8a21);
+    background-image: url(/images/main-banner-2.jpg?647999db16eea2bb171018f0daaf8a21);
   }
   100% {
-    background-image: url(/images/main.jpg?66fd5500f084c86454b6eb71190375c2);
+    background-image: url(/images/main-banner-1.jpg?bc14446d7aad3aa0e8217d94e6cfed5e);
   }
 }
 .page-banner {
+  background-image: url(/images/page-banner.jpg?c72e5a6f52c61c57c5d7d1bdc88b5c0a);
   position: relative;
   overflow: hidden;
   height: 200px;
@@ -1027,9 +1028,6 @@ select {
   width: 100%;
   height: 100%;
   z-index: 2;
-}
-.page-banner img {
-  width: 100%;
 }
 .page-banner h2 {
   position: absolute;

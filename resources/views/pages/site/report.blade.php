@@ -1,6 +1,5 @@
 <x-site-layout>
     <section class="page-banner">
-        <img src="{{ Storage::url('/static/main.jpg') }}" alt="main image" />
         <h2 class="home-title">{{ __('message.contact_us') }}</h2>
     </section>
 

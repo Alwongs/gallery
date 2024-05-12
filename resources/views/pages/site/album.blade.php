@@ -1,7 +1,6 @@
 <x-site-layout>
 
     <section class="page-banner">
-        <img src="{{ Storage::url('/static/main.jpg') }}" alt="main image" />
         <h2>{{ $album->title }}</h2>
     </section>
 
