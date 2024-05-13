@@ -75,6 +75,7 @@ class SettingController extends Controller
         $settings = Setting::all();
         $requestSettings = $request->settings;
 
+        $updatedSettings = [];
         foreach ($settings as $item) {
 
             if (!isset($requestSettings[$item->code])) {
@@ -84,8 +85,12 @@ class SettingController extends Controller
             } else {
                 $item->value = $requestSettings[$item->code];
             }
+
+            $updatedSettings[$item->code] = $item;
             $item->update();
         }
+
+        session(["settings" => $updatedSettings]);
 
         return redirect()->route('settings.index')->with('info', 'Success!'); 
     }

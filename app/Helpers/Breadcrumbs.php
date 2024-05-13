@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Functions;
+namespace App\Helpers;
 
 class Breadcrumbs
 {
-    public static function buildBreadcrumps($page, $title = "", $id = 0)
+    public static function buildBreadcrumbs($page, $title = "", $id = 0)
     {
         switch ($page) {
 

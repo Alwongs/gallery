@@ -138,3 +138,10 @@ a {
         display: none;     
     }       
 }
+.maintenance {
+    border: 1px solid red;
+    height: 100vh;
+    background-image: url('../../images/static/maintenance.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+}

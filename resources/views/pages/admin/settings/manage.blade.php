@@ -35,7 +35,7 @@
                         <li class="manage-list__item">
  
                             <div class="manage-list__item-title">
-                                {{ $setting->code }}
+                                {{ __("settings.$setting->code") }}
                             </div>
 
                             <div class="manage-list__item-value">
@@ -50,6 +50,7 @@
                         </li>        
                     @endforeach
                 </ul>  
+                
                 <div class="form__btn-block">
                     <button type="submit" class="btn btn-green submit">
                         @if(isset($album))

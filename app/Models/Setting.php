@@ -10,4 +10,14 @@ class Setting extends Model
     use HasFactory;
 
     protected $fillable = ['code', 'area', 'category', 'type', 'value'];
+
+    public static function getSettingsKeyObject()
+    {
+        $settings = self::all();
+        $newArray = [];
+        foreach ($settings as $item) {
+            $newArray[$item->code] = $item;
+        }
+        return $newArray;
+    }
 }

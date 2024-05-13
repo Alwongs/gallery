@@ -10,7 +10,7 @@ use ElFactory\IpApi\IpApi;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\VizitController;
 use App\Http\Requests\Message\StoreRequest;
-use App\Functions\Breadcrumbs;
+use App\Helpers\Breadcrumbs;
 
 class MessageController extends Controller
 {
@@ -28,7 +28,7 @@ class MessageController extends Controller
 
     public function create()
     {
-        $breadcrumbs = Breadcrumbs::buildBreadcrumps('contact_us', 'Contact us');
+        $breadcrumbs = Breadcrumbs::buildBreadcrumbs('contact_us', 'Contact us');
 
         return view('pages/site/contact_us', compact('breadcrumbs'));
     }

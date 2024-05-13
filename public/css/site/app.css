@@ -207,6 +207,14 @@ a {
   }
 }
 
+.maintenance {
+  border: 1px solid red;
+  height: 100vh;
+  background-image: url(/images/maintenance.jpg?6c5e097baced827885e4fa2e9ace0f21);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .aside {
   position: absolute;
   z-index: 5;

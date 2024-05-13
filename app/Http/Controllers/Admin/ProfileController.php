@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Functions\SiteHelper;
+use App\Helpers\SiteHelper;
 use App\Models\User;
 
 class ProfileController extends Controller

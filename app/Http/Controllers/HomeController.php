@@ -3,23 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Functions\SiteHelper;
-use App\Models\Post;
-use App\Models\Vizit;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\VizitController;
-use App\Functions\VizitHelper;
+use App\Helpers\VizitHelper;
+use App\Helpers\Settings;
+use App\Models\Setting;
 
 class HomeController extends Controller
 {
-    public function index() {
+    public function index()
+    {
+        if (empty(session("settings"))) {
+            session(["settings" => Setting::getSettingsKeyObject()]);
+        }
 
-        VizitHelper::saveVizit($_SERVER);
+        if (session("settings.is_site_open.value") == 'N') {
+            return view('maintenance');
+        }
 
         return view('home');
-    }
-
-    public function closeSite() {
-        return view('maintenance');
     }
 }

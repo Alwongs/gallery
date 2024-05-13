@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Resources\AlbumResource;
-use App\Functions\SiteHelper;
 use App\Models\Album;
 use App\Models\Photo;
-use App\Functions\Breadcrumbs;
+use App\Helpers\Breadcrumbs;
+use App\Helpers\Settings;
 
 class GalleryController extends Controller
 {
     public function index()
     {
-        $albums = Album::orderBy('created_at', 'desc')->paginate(9);
-        $breadcrumbs = Breadcrumbs::buildBreadcrumps('albums');
+        $albums = Album::orderBy('created_at', 'desc')->paginate(Settings::getValue("site_items_per_page"));
+        $breadcrumbs = Breadcrumbs::buildBreadcrumbs('albums');
 
         return view('pages/site/albums', compact('albums', 'breadcrumbs'));
     }
@@ -23,7 +23,7 @@ class GalleryController extends Controller
     {
         $album = new AlbumResource(Album::with('photos')->findOrFail($id)); 
         $photos = Photo::where('album_id', $id)->paginate(9);
-        $breadcrumbs = Breadcrumbs::buildBreadcrumps('album', $album->title);
+        $breadcrumbs = Breadcrumbs::buildBreadcrumbs('album', $album->title);
 
         return view('pages/site/album', compact('album', 'photos', 'breadcrumbs'));
     }

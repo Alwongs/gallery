@@ -71,7 +71,6 @@
         width: 100%;
         width: 80ch;            
         max-width: 100%; 
-        text-transform: capitalize;
         a {
             color: lighten($baseText, 9); 
         }
@@ -116,24 +115,39 @@
         } 
     }
     &__item-value {
-        flex: 0 0 50px;
+        flex: 0 0 70px;
         height: 25px;
+        // border: 1px solid red;
+        @media (max-width: $mobile-max) {  
+            height: 34px; 
+            font-size: 18px;              
+        } 
         input {
-
+            font-size: 14px;
+            @media (max-width: $mobile-max) {   
+                font-size: 18px;              
+            } 
         }
         input[type=text]  {
             border: 1px solid $baseText;
             height: 100%;
             width: 100%;
+            padding-left: 5px;
+            color: $baseText;
             &:focus {
                 outline: 1px solid $baseBg;
             }
+
         }
         input[type=checkbox] {
             outline: 1px solid $baseText;
             border: none;
             width: 20px;
             height: 20px;
+            @media (max-width: $mobile-max) {   
+                height: 30px;
+                width: 30px;            
+            } 
         }
     }
 }

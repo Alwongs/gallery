@@ -49,6 +49,11 @@
   font-weight: 400;
   font-style: light;
 }
+:root {
+  touch-action: pan-x pan-y;
+  height: 100%;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -339,7 +344,6 @@ a {
   width: 100%;
   width: 80ch;
   max-width: 100%;
-  text-transform: capitalize;
 }
 .manage-list__item-title a {
   color: #0073a4;
@@ -397,13 +401,29 @@ a {
   }
 }
 .manage-list__item-value {
-  flex: 0 0 50px;
+  flex: 0 0 70px;
   height: 25px;
+}
+@media (max-width: 767px) {
+  .manage-list__item-value {
+    height: 34px;
+    font-size: 18px;
+  }
+}
+.manage-list__item-value input {
+  font-size: 14px;
+}
+@media (max-width: 767px) {
+  .manage-list__item-value input {
+    font-size: 18px;
+  }
 }
 .manage-list__item-value input[type=text] {
   border: 1px solid rgb(0, 83, 118);
   height: 100%;
   width: 100%;
+  padding-left: 5px;
+  color: rgb(0, 83, 118);
 }
 .manage-list__item-value input[type=text]:focus {
   outline: 1px solid #4492a6;
@@ -413,6 +433,12 @@ a {
   border: none;
   width: 20px;
   height: 20px;
+}
+@media (max-width: 767px) {
+  .manage-list__item-value input[type=checkbox] {
+    height: 30px;
+    width: 30px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -597,47 +623,32 @@ a {
 }
 
 .btn-green {
-  border: 1px solid #009859;
+  border: 2px solid #009859;
   color: #009859;
+  font-weight: 500;
+  letter-spacing: 2px;
 }
 .btn-green:hover {
   background-color: #009859;
 }
-@media (max-width: 767px) {
-  .btn-green {
-    background-color: #009859;
-    color: #fff;
-  }
-}
-
 .btn-blue {
-  border: 1px solid #1a80cf;
+  border: 2px solid #1a80cf;
   color: #1a80cf;
+  font-weight: 500;
+  letter-spacing: 2px;
 }
 .btn-blue:hover {
   background-color: #1a80cf;
 }
-@media (max-width: 767px) {
-  .btn-blue {
-    background-color: #1a80cf;
-    color: #fff;
-  }
-}
-
 .btn-red {
-  border: 1px solid #fe4747;
+  border: 2px solid #fe4747;
   color: #fe4747;
+  font-weight: 500;
+  letter-spacing: 2px;
 }
 .btn-red:hover {
   background-color: #fe4747;
 }
-@media (max-width: 767px) {
-  .btn-red {
-    background-color: #fe4747;
-    color: #fff;
-  }
-}
-
 .btn-icon-edit {
   background-image: url(/images/edit-dark.svg?53cfaf3622000793dd2b1176498262f6);
   background-repeat: no-repeat;

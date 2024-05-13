@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Functions\TextHelper;
+use App\Helpers\TextHelper;
+use App\Helpers\Settings;
 use App\Models\Album;
 use App\Models\Photo;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        $photos = Photo::orderBy('created_at', 'desc')->paginate(10);
+        $photos = Photo::orderBy('created_at', 'desc')->paginate(Settings::getValue("admin_items_per_page"));
         return view('pages/admin/photos/manage', compact('photos'));
     }
 

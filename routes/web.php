@@ -2,15 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MessageController;
-use App\Http\Controllers\VizitController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\AlbumController;
 use App\Http\Controllers\Admin\PhotoController;
+use App\Http\Controllers\Admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +21,6 @@ use App\Http\Controllers\Admin\PhotoController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
 Route::get('/report', function () {
     return view('pages.site.report');
@@ -44,15 +39,13 @@ Route::get('/photo/{id}', [GalleryController::class, 'showPhoto'])->name('photo'
 
 Route::middleware('auth')->group(function () {
 
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
     Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile');
 
     Route::get('/messages', [MessageController::class, 'index'])->name('messages');
     Route::get('/clear-messages', [MessageController::class, 'clear'])->name('clear-messages');
     Route::get('/message/{id}', [MessageController::class, 'show'])->name('message');
-
-    Route::get('/vizits', [VizitController::class, 'index'])->name('vizits');
-    Route::get('/vizit/{id}', [VizitController::class, 'show'])->name('vizit');
-    Route::get('/clear-vizits', [VizitController::class, 'clear'])->name('clear-vizits');
 
     Route::resources([
         'settings' => SettingController::class, 

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use File;
-use App\Functions\TextHelper;
+use App\Helpers\TextHelper;
+use App\Helpers\Settings;
 use App\Models\Album;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,7 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        $albums = Album::orderBy('created_at', 'desc')->paginate(10);
+        $albums = Album::orderBy('created_at', 'desc')->paginate(Settings::getValue("admin_items_per_page"));
         return view('pages/admin/albums/manage', compact('albums'));
     }
 

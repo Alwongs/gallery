@@ -42,36 +42,42 @@
 }
 
 .btn-green {
-    border: 1px solid $btnGreen;  
+    border: 2px solid $btnGreen;  
     color: $btnGreen;  
+    font-weight: 500;
+    letter-spacing: 2px;
     &:hover {
         background-color: $btnGreen;
     }
     @media (max-width: $mobile-max) {  
-        background-color: $btnGreen;
-        color: $white;        
+        // background-color: $btnGreen;
+        // color: $white;        
     }      
 }
 .btn-blue {
-    border: 1px solid $btnBlue;
+    border: 2px solid $btnBlue;
     color: $btnBlue;
+    font-weight: 500;
+    letter-spacing: 2px;
     &:hover {
         background-color: $btnBlue;
     }
     @media (max-width: $mobile-max) {  
-        background-color: $btnBlue;
-        color: $white;        
+        // background-color: $btnBlue;
+        // color: $white;        
     }     
 }
 .btn-red {
-    border: 1px solid $btnRed;
+    border: 2px solid $btnRed;
     color: $btnRed;
+    font-weight: 500;
+    letter-spacing: 2px;
     &:hover {
         background-color: $btnRed;
     }
     @media (max-width: $mobile-max) {  
-        background-color: $btnRed;
-        color: $white;        
+        // background-color: $btnRed;
+        // color: $white;        
     }     
 }
 
