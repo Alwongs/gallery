@@ -49,6 +49,11 @@
   font-weight: 400;
   font-style: light;
 }
+:root {
+  touch-action: pan-x pan-y;
+  height: 100%;
+}
+
 *,
 *:before,
 *:after {
