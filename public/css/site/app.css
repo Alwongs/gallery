@@ -1005,6 +1005,10 @@ select {
   color: white;
   cursor: pointer;
   z-index: 3;
+  transition: 0.5s;
+}
+.home-page-banner__contact-us:hover {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 @media (max-width: 767px) {
   .home-page-banner {

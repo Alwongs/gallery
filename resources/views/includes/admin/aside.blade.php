@@ -31,6 +31,15 @@
                 <a href="{{ route('settings.index') }}">
                     <span>Settings</span>
                 </a>
+
+                <a href="{{ route('messages') }}">
+                    <span>Messages </span>
+                    @if(Session::get('messageCount'))
+                        <span style="color:green;fomt-weight:600;">
+                            {{ Session::get('messageCount')}}
+                        </span>
+                    @endif
+                </a>                
             @endif
         </nav>
     </div>

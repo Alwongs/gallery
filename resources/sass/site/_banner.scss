@@ -39,6 +39,10 @@
         color: white;
         cursor: pointer;
         z-index: 3;
+        transition: 0.5s;
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.2);           
+        }
     }
     @media (max-width: $mobile-max) {  
         height: fit-content;  

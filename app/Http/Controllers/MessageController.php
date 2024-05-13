@@ -14,14 +14,14 @@ use App\Helpers\Breadcrumbs;
 
 class MessageController extends Controller
 {
-    public function index() {
-
+    public function index()
+    {
         $messages = Message::all();
         return view('pages/admin/users/messages', compact('messages'));
     }
 
-    public function show($id) {
-
+    public function show($id)
+    {
         $message = Message::find($id);
         return view('pages/admin/users/message', compact('message'));
     }
@@ -29,7 +29,6 @@ class MessageController extends Controller
     public function create()
     {
         $breadcrumbs = Breadcrumbs::buildBreadcrumbs('contact_us', 'Contact us');
-
         return view('pages/site/contact_us', compact('breadcrumbs'));
     }
 
