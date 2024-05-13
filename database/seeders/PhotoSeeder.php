@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\Album;
+use App\Models\Photo;
 
-class AlbumSeeder extends Seeder
+class PhotoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class AlbumSeeder extends Seeder
      */
     public function run()
     {
-        Album::factory()->count(24)->create();
-        // DB::delete('delete from albums where 1');
+        Photo::factory()->count(150)->create();
+        // DB::delete('delete from photos where 1');
     }
 }

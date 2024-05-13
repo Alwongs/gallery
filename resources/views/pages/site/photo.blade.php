@@ -20,11 +20,7 @@
                     @endif
                 </div>
                 <div class="text-container photo-detail__text">
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis, veniam voluptates sequi odio expedita voluptatum culpa cum ea tempore accusamus ad tempora asperiores vitae. Officiis ex nisi tenetur eveniet? Similique?</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis, veniam voluptates sequi odio expedita voluptatum culpa cum ea tempore accusamus ad tempora asperiores vitae. Officiis ex nisi tenetur eveniet? Similique?</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis, veniam voluptates sequi odio expedita voluptatum culpa cum ea tempore accusamus ad tempora asperiores vitae. Officiis ex nisi tenetur eveniet? Similique?</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis, veniam voluptates sequi odio expedita voluptatum culpa cum ea tempore accusamus ad tempora asperiores vitae. Officiis ex nisi tenetur eveniet? Similique?</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis, veniam voluptates sequi odio expedita voluptatum culpa cum ea tempore accusamus ad tempora asperiores vitae. Officiis ex nisi tenetur eveniet? Similique?</p>
+                    {{ $photo->description }}
                 </div>
             </div>
         </div>

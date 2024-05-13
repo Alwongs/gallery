@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Helpers\VizitHelper;
 use App\Helpers\Settings;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Setting;
+use App\Models\Photo;
 
 class HomeController extends Controller
 {
@@ -20,6 +21,8 @@ class HomeController extends Controller
             return view('maintenance');
         }
 
-        return view('home');
+        $photos = Photo::take(6)->get();
+
+        return view('home', compact('photos'));
     }
 }

@@ -23,7 +23,7 @@
                 <textarea name="message" placeholder="message"></textarea>
             </div>
 
-            <div class="form__btn-block">
+            <div class="form__btn-block btn-block">
                 <button type="submit" class="btn btn-green">
                     {{__("Send")}}
                 </button>

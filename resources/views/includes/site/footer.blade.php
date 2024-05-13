@@ -5,7 +5,11 @@
         </div>
 
         <div class="footer__col">
-            <a class="contact-us" href="{{ route('contact-us') }}">Написать автору сайта</a>
+            @if ( Illuminate\Support\Facades\Route::currentRouteName() != 'contact-us')
+                <a class="contact-us" href="{{ route('contact-us') }}">
+                    Написать автору сайта
+                </a>
+            @endif
         </div>
 
         <div class="footer__col footer-contacts">

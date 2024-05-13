@@ -31,7 +31,7 @@ class GalleryController extends Controller
     public function showPhoto($id)
     {
         $photo = Photo::with('album')->orderBy('created_at', 'desc')->findOrFail($id);
-        $breadcrumbs = Breadcrumbs::buildBreadcrumps('photo', $photo->album->title, $photo->album->id);
+        $breadcrumbs = Breadcrumbs::buildBreadcrumbs('photo', $photo->album->title, $photo->album->id);
 
         return view('pages/site/photo', compact('photo', 'breadcrumbs'));
     }
