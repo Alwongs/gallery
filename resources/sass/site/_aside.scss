@@ -17,7 +17,7 @@
     @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
         
     }           
-    @media (max-width: $mobile-max) and (orientation:landscape) {  
+    @media (max-width: $mobile-max) and (orientation: landscape) {  
         position: absolute;
         top: 0;
         left: -100%;

@@ -521,7 +521,7 @@ a {
   height: 100%;
   width: 100%;
 }
-@media (max-width: 767px) {
+@media (max-width: 767px) and (orientation: landscape) {
   .aside {
     position: absolute;
     z-index: 4;

@@ -9,7 +9,7 @@
     @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
         
     }           
-    @media (max-width: $mobile-max) {  
+    @media (max-width: $mobile-max) and (orientation: landscape) {  
         position: absolute;
         z-index: 4;
         top: 0;
