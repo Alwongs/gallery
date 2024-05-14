@@ -29,6 +29,9 @@ a {
         height: 100%;
         min-height: 100vh;
     }
+    @media (max-width: $mobile-max) {  
+        display: block;  
+    }  
 }
 
 .page-title {

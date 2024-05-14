@@ -88,6 +88,11 @@ a {
   height: 100%;
   min-height: 100vh;
 }
+@media (max-width: 767px) {
+  .website {
+    display: block;
+  }
+}
 
 .page-title {
   padding-top: 20px;
@@ -521,7 +526,7 @@ a {
   height: 100%;
   width: 100%;
 }
-@media (max-width: 767px) and (orientation: landscape) {
+@media (max-width: 767px) {
   .aside {
     position: absolute;
     z-index: 4;
