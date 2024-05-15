@@ -4,7 +4,7 @@
         @if ($album->image)
             <img src="{{ Storage::url('albums/previews/' . $album->image) }}" alt="{{ $album->image }}" title="{{ $album->title }}" />
         @else
-            <img src="{{ Storage::url('/site/no-picture.jpg') }}" alt="no-picture" title="{{ $album->title }}" >
+            <div class="no-photo-image"></div>
         @endif
     </a>
 </li>

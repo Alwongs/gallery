@@ -18,7 +18,11 @@
                 @foreach($albums as $album)
                 <li class="manage-list__item">
                     <div class="manage-list__item-image">
-                        <img src="{{ Storage::url('albums/icons/' . $album->image) ?: '' }}" alt="{{ $album->image }}" />
+                        @if($album->image)
+                            <img src="{{ Storage::url('albums/icons/' . $album->image) ?: '' }}" alt="{{ $album->image }}" />
+                        @else
+                            <div class="no-photo-image"></div>
+                        @endif
                     </div>  
 
                     <div class="manage-list__item-title">{{ $album->title }}</div> 

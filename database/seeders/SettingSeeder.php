@@ -46,7 +46,7 @@ class SettingSeeder extends Seeder
                 'area'        => 'S',
                 'category'    => 'access', 
                 'type'        => 'C',
-                'value'       => "Y"
+                'value'       => "N"
             ],            
         ]);
     }

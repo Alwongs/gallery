@@ -24,9 +24,13 @@
             </div>
 
             @isset($album)
-            <div class="form__image-block">
-                <img src="{{ Storage::url('albums/previews/' . $album->image) ?: '' }}" alt="{{ $album->image }}" />
-            </div>
+                <div class="form__image-block">
+                    @if($album->image)
+                        <img src="{{ Storage::url('albums/previews/' . $album->image) ?: '' }}" alt="{{ $album->image }}" />
+                    @else
+                        <div class="no-photo-image"></div>
+                    @endif
+                </div>
             @endisset
 
             <div class="form__file-block">

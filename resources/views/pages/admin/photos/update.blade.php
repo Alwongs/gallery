@@ -42,7 +42,11 @@
 
             @isset($photo)
             <div class="form__image-block">
-                <img src="{{ Storage::url($photo->image) ?: '' }}" alt="{{ $photo->image }}" />
+                @if($photo->image)
+                    <img src="{{ Storage::url($photo->image) ?: '' }}" alt="{{ $photo->image }}" />
+                @else
+                    <div class="no-photo-image"></div>
+                @endif
             </div>
             @endisset
 
