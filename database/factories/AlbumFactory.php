@@ -16,7 +16,6 @@ class AlbumFactory extends Factory
         return [
             'title' => $this->faker->name,
             'description' => $this->faker->text,
-            'image' => $this->faker->word . '.jpg',
         ];
     }
 }

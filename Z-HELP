@@ -35,11 +35,17 @@ auth laravel-breeze:
     https://qna.habr.com/q/518786
 .
 
+
+
+Работа с изобржениями (библиотека intervention):
+    https://tretyakov.net/post/laravel-image-intervention/
+
 Работа с изображениями (библиотека Image):
     https://www.youtube.com/watch?v=Q4BfXWXpE0E
 .
 Загрузка изображений ларавел 8:
     https://www.youtube.com/watch?v=-iuZhHDtOW4&t=479s   
+
 
 
 css анимация

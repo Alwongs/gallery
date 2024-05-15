@@ -19,7 +19,6 @@ class PhotoFactory extends Factory
         return [
             'title' => $this->faker->name,
             'description' => $this->faker->text,
-            'image' => $this->faker->word . '.jpg',
             'album_id' => $albumIDs[array_rand($albumIDs)]
         ];
     }

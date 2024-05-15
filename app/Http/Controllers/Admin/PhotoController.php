@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Helpers\TextHelper;
-use App\Helpers\Settings;
-use App\Models\Album;
-use App\Models\Photo;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Photo\StoreRequest;
 use App\Http\Controllers\Controller;
+use App\Helpers\ImagePhotoHelper;
+use App\Helpers\TextHelper;
+use App\Helpers\Settings;
+use App\Models\Album;
+use App\Models\Photo;
+use File;
+use Image;
 
 class PhotoController extends Controller
 {
@@ -59,11 +63,16 @@ class PhotoController extends Controller
             $album = Album::find($photo['album_id']);
 
             if ($request->hasFile('image')) {
+
                 $image = $request->file('image');
-                $newImageName = TextHelper::buildAlbumImageName($photo['title'], $image->getClientOriginalExtension());
-                $albumDirName = TextHelper::transliterate($album->title);
-                $path = $image->storeAs('photos/'.$albumDirName, $newImageName);
-                $photo['image'] = $path;
+                $newImageName = ImagePhotoHelper::buildImageName($photo['title'], $image->getClientOriginalExtension());
+                $image->storeAs('photos/originals/', $newImageName);
+                $photo['image'] = $newImageName;
+
+                    //Создаем миниатюры изображения и сохраняем их
+                $thumbnail = Image::make(Storage::path('photos/originals/') . $newImageName);
+                ImagePhotoHelper::storeResizedImages($thumbnail, $newImageName);
+
             } else {
                 return redirect()->back()->with('status', 'Select image!'); 
             }

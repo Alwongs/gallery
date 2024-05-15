@@ -25,7 +25,7 @@
 
             @isset($album)
             <div class="form__image-block">
-                <img src="{{ Storage::url($album->image) ?: '' }}" alt="{{ $album->image }}" />
+                <img src="{{ Storage::url('albums/previews/' . $album->image) ?: '' }}" alt="{{ $album->image }}" />
             </div>
             @endisset
 

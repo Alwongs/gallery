@@ -14,7 +14,7 @@
             <div class="photo-detail__body">
                 <div class="photo-detail__image">
                     @if ($photo->image)
-                        <img src="{{ Storage::url($photo->image) }}" alt="{{ $photo->image }}" title="{{ $photo->title }}" />
+                        <img src="{{ Storage::url('photos/originals/' . $photo->image) }}" alt="{{ $photo->image }}" title="{{ $photo->title }}" />
                     @else
                         <img src="{{ Storage::url('/site/no-picture.jpg') }}" alt="no-picture" title="{{ $photo->title }}" >
                     @endif
