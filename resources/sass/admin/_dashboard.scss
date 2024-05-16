@@ -1,0 +1,33 @@
+.section {
+    border: 1px solid rgba($baseText, .3);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.dashboard-actions {
+    &__title {
+        margin-bottom: 10px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    &__action {
+        background-color: rgb(255, 207, 207);
+        box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.4); 
+        border: 1px solid red;
+        border-radius: 5px;
+        width: 100px;
+        height: 100px;
+        padding: 5px;
+        color: rgb(124, 30, 30);
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.1s;
+        &:hover {
+            background-color: rgb(255, 221, 221);
+        }
+        &:focus { 
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.4); 
+        }
+    }
+}

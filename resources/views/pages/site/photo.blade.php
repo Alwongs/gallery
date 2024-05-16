@@ -14,7 +14,7 @@
             <div class="photo-detail__body">
                 <div class="photo-detail__image">
                     @if ($photo->image)
-                        <img src="{{ Storage::url('photos/originals/' . $photo->image) }}" alt="{{ $photo->image }}" title="{{ $photo->title }}" />
+                        <img src="{{ Storage::url('photos/' . App\Helpers\TextHelper::transliterate($photo->album->title) . '/previews/' . $photo->image) }}" alt="{{ $photo->image }}" title="{{ $photo->title }}" />
                     @else
                         <div class="no-photo-image"></div>
                     @endif

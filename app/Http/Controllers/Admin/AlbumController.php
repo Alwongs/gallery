@@ -58,7 +58,7 @@ class AlbumController extends Controller
 
                     //Создаем миниатюры изображения и сохраняем их
                 $thumbnail = Image::make(Storage::path('albums/originals/') . $newImageName);
-                ImageAlbumHelper::storeResizedImages($thumbnail, $newImageName);
+                ImageAlbumHelper::storeResizedImages($thumbnail, '', $newImageName);
 
             } else {
                 return redirect()->back()->with('status', 'Select image!'); 
@@ -135,8 +135,17 @@ class AlbumController extends Controller
         if (Auth::user()->is_root) {
 
             if($album->image) {
-                Storage::delete($album->image);
-                File::deleteDirectory(public_path('storage/photos/' . TextHelper::transliterate($album->title) . '/'));
+
+                foreach (['icons/', 'previews/', 'originals/'] as $item) {
+
+                    $path = 'albums/' . $item . $album->image;
+
+                    if (File::exists(Storage::path($path))) {
+                        Storage::delete($path);
+                    }
+                }
+
+                File::deleteDirectory(Storage::path('photos/' . TextHelper::transliterate($album->title) . '/'));
             }
 
             $album->delete();

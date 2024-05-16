@@ -1,0 +1,17 @@
+.container {
+    // border: 3px solid green;
+    width: 1100px;
+    margin: 0 auto;
+    // padding: 0 10px;
+    gap: 10px;
+    @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+        max-width: 1100px;            
+        width: 100%;           
+    }     
+    @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
+        width: 100%;         
+    }           
+    @media (max-width: $mobile-max) {  
+        width: 100%;                
+    }      
+}

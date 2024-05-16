@@ -2,7 +2,7 @@
 
 namespace App\Helpers;
 
-use App\Model\Setting;
+use App\Models\Setting;
 
 class Settings
 {

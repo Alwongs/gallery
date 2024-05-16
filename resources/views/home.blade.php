@@ -11,7 +11,7 @@
     <section class="section">
         <div class="container">
             <div class="section__title">
-                <h2>Recent posts<h2>
+                <h2>Recent photos<h2>
             </div>
 
             @include('blocks.recent-photos')

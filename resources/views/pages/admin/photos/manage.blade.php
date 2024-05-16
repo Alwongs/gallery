@@ -19,7 +19,7 @@
                 <li class="manage-list__item">
                     <div class="manage-list__item-image">
                         @if($photo->image)
-                            <img src="{{ Storage::url('/photos/icons/' . $photo->image) ?: '' }}" alt="{{ $photo->image }}" />
+                            <img src="{{ Storage::url('photos/' . App\Helpers\TextHelper::transliterate($photo->album->title) . '/icons/' . $photo->image) ?: '' }}" alt="{{ $photo->image }}" />
                         @else
                             <div class="no-photo-image"></div>
                         @endif

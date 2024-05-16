@@ -23,13 +23,20 @@
             @if (Auth::user()->is_root)
                 <a href="{{ route('albums.index') }}">
                     <span>Albums</span>
-                </a>
-                <a href="{{ route('photos.index') }}">
-                    <span>Photos</span>
+                    @if(Session::get('albumCount'))
+                        <span style="color:green;fomt-weight:600;">
+                            {{ Session::get('albumCount')}}
+                        </span>
+                    @endif 
                 </a>
 
-                <a href="{{ route('settings.index') }}">
-                    <span>Settings</span>
+                <a href="{{ route('photos.index') }}">
+                    <span>Photos</span>
+                    @if(Session::get('photoCount'))
+                        <span style="color:green;fomt-weight:600;">
+                            {{ Session::get('photoCount')}}
+                        </span>
+                    @endif                      
                 </a>
 
                 <a href="{{ route('messages') }}">
@@ -39,7 +46,11 @@
                             {{ Session::get('messageCount')}}
                         </span>
                     @endif
-                </a>                
+                </a>   
+
+                <a href="{{ route('settings.index') }}">
+                    <span>Settings</span>                       
+                </a>
             @endif
         </nav>
     </div>

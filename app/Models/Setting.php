@@ -11,13 +11,14 @@ class Setting extends Model
 
     protected $fillable = ['code', 'area', 'category', 'type', 'value'];
 
+    // create new array: key => object
     public static function getSettingsKeyObject()
     {
         $settings = self::all();
-        $newArray = [];
+        $settingsKeyObj = [];
         foreach ($settings as $item) {
-            $newArray[$item->code] = $item;
+            $settingsKeyObj[$item->code] = $item;
         }
-        return $newArray;
+        return $settingsKeyObj;
     }
 }

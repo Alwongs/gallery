@@ -40,6 +40,7 @@ Route::get('/photo/{id}', [GalleryController::class, 'showPhoto'])->name('photo'
 Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::delete('/dashboard/remove-albums', [DashboardController::class, 'removeAlbumsAndPhotos'])->name('remove-albums');
 
     Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile');
 

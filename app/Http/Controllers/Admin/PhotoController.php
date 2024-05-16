@@ -66,12 +66,12 @@ class PhotoController extends Controller
 
                 $image = $request->file('image');
                 $newImageName = ImagePhotoHelper::buildImageName($photo['title'], $image->getClientOriginalExtension());
-                $image->storeAs('photos/originals/', $newImageName);
+                $image->storeAs('photos/'.TextHelper::transliterate($album->title).'/originals/', $newImageName);
                 $photo['image'] = $newImageName;
 
                     //Создаем миниатюры изображения и сохраняем их
-                $thumbnail = Image::make(Storage::path('photos/originals/') . $newImageName);
-                ImagePhotoHelper::storeResizedImages($thumbnail, $newImageName);
+                $thumbnail = Image::make(Storage::path('photos/'.TextHelper::transliterate($album->title).'/originals/') . $newImageName);
+                ImagePhotoHelper::storeResizedImages($thumbnail, TextHelper::transliterate($album->title), $newImageName);
 
             } else {
                 return redirect()->back()->with('status', 'Select image!'); 
@@ -157,13 +157,19 @@ class PhotoController extends Controller
         if (Auth::user()->is_root) {
 
             if($photo->image) {
-                Storage::delete($photo->image);
+
+                foreach (['icons/', 'previews/', 'originals/'] as $item) {
+                    $path = 'photos/' . TextHelper::transliterate($photo->album->title) . '/' . $item . $photo->image;
+
+                    if (File::exists(Storage::path($path))) {
+                        Storage::delete($path);
+                    }
+                }
             }
 
             $photo->delete();
 
             return redirect()->back()->with('info', 'Запись успешно удалена'); 
-
         } else {
             return redirect()->back()->with('status', 'Это не ваш пост! Не вам и удалять!');              
         }

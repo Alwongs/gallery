@@ -17,16 +17,16 @@
 
             <div class="form__input-block">
                 @if($albums)
-                <select name="album_id" id="album">
-                    <option name="default" value="" style="color:grey;" >Select an album</option>
-                    @foreach($albums as $album)
-                        @if(isset($photo) && $album->id == $photo->album_id)
-                            <option name="album_id" value="{{ $album->id }}" selected>{{ $album->title }}</option>
-                        @else
-                            <option name="album_id" value="{{ $album->id }}">{{ $album->title }}</option>
-                        @endif
-                    @endforeach
-                </select>
+                    <select name="album_id" id="album">
+                        <option name="default" value="" style="color:grey;" >Select an album</option>
+                        @foreach($albums as $album)
+                            @if(isset($photo) && $album->id == $photo->album_id)
+                                <option name="album_id" value="{{ $album->id }}" selected>{{ $album->title }}</option>
+                            @else
+                                <option name="album_id" value="{{ $album->id }}">{{ $album->title }}</option>
+                            @endif
+                        @endforeach
+                    </select>
                 @else
                     <p style="color:red;">Create at least one album</p>
                 @endif
@@ -43,7 +43,7 @@
             @isset($photo)
             <div class="form__image-block">
                 @if($photo->image)
-                    <img src="{{ Storage::url($photo->image) ?: '' }}" alt="{{ $photo->image }}" />
+                    <img src="{{ Storage::url('photos/' . App\Helpers\TextHelper::transliterate($photo->album->title) . '/previews/' . $photo->image) ?: '' }}" alt="{{ $photo->image }}" />
                 @else
                     <div class="no-photo-image"></div>
                 @endif
