@@ -64,14 +64,11 @@ class PhotoController extends Controller
 
             if ($request->hasFile('image')) {
 
-                $image = $request->file('image');
-                $newImageName = ImagePhotoHelper::buildImageName($photo['title'], $image->getClientOriginalExtension());
-                $image->storeAs('photos/'.TextHelper::transliterate($album->title).'/originals/', $newImageName);
-                $photo['image'] = $newImageName;
+                $requestImage = $request->file('image');
+                $newImageName = ImagePhotoHelper::buildImageName($photo['title'], $requestImage->getClientOriginalExtension());
+                ImagePhotoHelper::storeImage($requestImage, TextHelper::transliterate($album->title), $newImageName);                 
 
-                    //Создаем миниатюры изображения и сохраняем их
-                $thumbnail = Image::make(Storage::path('photos/'.TextHelper::transliterate($album->title).'/originals/') . $newImageName);
-                ImagePhotoHelper::storeResizedImages($thumbnail, TextHelper::transliterate($album->title), $newImageName);
+                $photo['image'] = $newImageName;
 
             } else {
                 return redirect()->back()->with('status', 'Select image!'); 
@@ -122,16 +119,18 @@ class PhotoController extends Controller
     {
         if ($request->hasFile('image')) {
 
-            if($photo->image) {
-                Storage::delete($photo->image);
-            }
-
-            $image = $request->file('image');
-            $newImageName = TextHelper::buildAlbumImageName($request->title, $image->getClientOriginalExtension());
             $album = Album::find($photo->album_id);
             $albumDirName = TextHelper::transliterate($album->title);
-            $path = $image->storeAs('photos/'.$albumDirName, $newImageName);
-            $photo->image = $path;
+
+            if($photo->image) {
+                ImagePhotoHelper::removeImagesFromStorage($albumDirName, $photo->image);
+            }
+
+            $requestImage = $request->file('image');
+            $newImageName = ImagePhotoHelper::buildImageName($photo->title, $requestImage->getClientOriginalExtension());
+            ImagePhotoHelper::storeImage($requestImage, TextHelper::transliterate($album->title), $newImageName);  
+
+            $photo->image = $newImageName;
         }
 
         if (empty($photo->image)) {
@@ -157,16 +156,8 @@ class PhotoController extends Controller
         if (Auth::user()->is_root) {
 
             if($photo->image) {
-
-                foreach (['icons/', 'previews/', 'originals/'] as $item) {
-                    $path = 'photos/' . TextHelper::transliterate($photo->album->title) . '/' . $item . $photo->image;
-
-                    if (File::exists(Storage::path($path))) {
-                        Storage::delete($path);
-                    }
-                }
+                ImagePhotoHelper::removeImagesFromStorage(TextHelper::transliterate($photo->album->title), $photo->image);
             }
-
             $photo->delete();
 
             return redirect()->back()->with('info', 'Запись успешно удалена'); 

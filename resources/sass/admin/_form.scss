@@ -167,3 +167,7 @@ select {
         border-bottom: 1px dashed lightgrey;
     }
 }
+
+.input-disabled {
+    color: rgba($baseText, .7) !important;
+}

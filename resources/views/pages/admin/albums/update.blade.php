@@ -16,7 +16,16 @@
             @csrf
 
             <div class="form__input-block">
-                <input name="title" type="text" placeholder="title" value="{{ isset($album) ? $album->title : '' }}" required />
+                <input 
+                    type="text"
+                    name="title"
+                    placeholder="title"
+                    value="{{ isset($album) ? $album->title : '' }}"
+                    @if(isset($album)) 
+                        class="input-disabled"
+                        disabled
+                    @endif
+                />
             </div>    
 
             <div class="form__textarea-block">

@@ -938,6 +938,10 @@ select {
   border-bottom: 1px dashed lightgrey;
 }
 
+.input-disabled {
+  color: rgba(0, 83, 118, 0.7) !important;
+}
+
 .container {
   width: 1100px;
   margin: 0 auto;

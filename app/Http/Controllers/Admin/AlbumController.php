@@ -51,15 +51,11 @@ class AlbumController extends Controller
 
             if ($request->hasFile('image')) {
                 
-                $image = $request->file('image');
-                $newImageName = ImageAlbumHelper::buildImageName($album['title'], $image->getClientOriginalExtension());
-                $image->storeAs('albums/originals', $newImageName);
+                $requestImage = $request->file('image');
+                $newImageName = TextHelper::buildAlbumImageName($album['title'], $requestImage->getClientOriginalExtension());
+                ImageAlbumHelper::storeImage($requestImage, $album['title'], $newImageName);  
+
                 $album['image'] = $newImageName;
-
-                    //Создаем миниатюры изображения и сохраняем их
-                $thumbnail = Image::make(Storage::path('albums/originals/') . $newImageName);
-                ImageAlbumHelper::storeResizedImages($thumbnail, '', $newImageName);
-
             } else {
                 return redirect()->back()->with('status', 'Select image!'); 
             }
@@ -104,20 +100,20 @@ class AlbumController extends Controller
         if ($request->hasFile('image')) {
 
             if($album->image) {
-                Storage::delete($album->image);
+                ImageAlbumHelper::removeImagesFromStorage('', $album->image);
             }
 
-            $image = $request->file('image');
-            $newImageName = TextHelper::buildAlbumImageName($album->title, $image->getClientOriginalExtension());
-            $path = $image->storeAs('albums', $newImageName);
-            $album->image = $path;
+            $requestImage = $request->file('image');
+            $newImageName = TextHelper::buildAlbumImageName($album->title, $requestImage->getClientOriginalExtension());
+            ImageAlbumHelper::storeImage($requestImage, $album->title, $newImageName); // возможно не нужен album->title
+
+            $album->image = $newImageName;
         }
 
         if (empty($album->image)) {
             return redirect()->back()->with('status', 'Select image!'); 
         }
 
-        $album->title = $request->title;
         $album->description = $request->description;
         $album->update();
 
@@ -135,16 +131,7 @@ class AlbumController extends Controller
         if (Auth::user()->is_root) {
 
             if($album->image) {
-
-                foreach (['icons/', 'previews/', 'originals/'] as $item) {
-
-                    $path = 'albums/' . $item . $album->image;
-
-                    if (File::exists(Storage::path($path))) {
-                        Storage::delete($path);
-                    }
-                }
-
+                ImageAlbumHelper::removeImagesFromStorage('', $album->image);
                 File::deleteDirectory(Storage::path('photos/' . TextHelper::transliterate($album->title) . '/'));
             }
 
