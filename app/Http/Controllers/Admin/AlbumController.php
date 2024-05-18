@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Album\StoreRequest;
+use App\Http\Middleware\RootAdminMiddleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -16,6 +17,11 @@ use Image;
 
 class AlbumController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(RootAdminMiddleware::class)->only(['store', 'update', 'destroy']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -45,10 +51,6 @@ class AlbumController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        if (!Auth::user()->is_root) {
-            return redirect()->back()->with('status', 'access denied!');              
-        }
-
         if ($request->validated()) {
 
             $album = $request->all();
@@ -101,10 +103,6 @@ class AlbumController extends Controller
      */
     public function update(Request $request, Album $album)
     {
-        if (!Auth::user()->is_root) {
-            return redirect()->back()->with('status', 'access denied!');              
-        }
-
         if ($request->hasFile('image')) {
 
             if($album->image) {
@@ -136,10 +134,6 @@ class AlbumController extends Controller
      */
     public function destroy(Album $album)
     {
-        if (!Auth::user()->is_root) {
-            return redirect()->back()->with('status', 'access denied!');              
-        }
-
         if($album->image) {
             ImageAlbumHelper::removeImagesFromStorage('', $album->image);
             File::deleteDirectory(Storage::path('photos/' . TextHelper::transliterate($album->title) . '/'));
@@ -148,6 +142,5 @@ class AlbumController extends Controller
         $album->delete();
 
         return redirect()->back()->with('info', 'Запись успешно удалена'); 
-
     }  
 }

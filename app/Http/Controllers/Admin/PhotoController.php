@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Photo\StoreRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\RootAdminMiddleware;
 use App\Helpers\ImagePhotoHelper;
 use App\Helpers\TextHelper;
 use App\Helpers\Settings;
@@ -18,6 +18,11 @@ use Image;
 
 class PhotoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(RootAdminMiddleware::class)->only(['store', 'update', 'destroy']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -53,10 +58,6 @@ class PhotoController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        if (!Auth::user()->is_root) {
-            return redirect()->back()->with('status', 'access denied!');              
-        }
-
         if ($request->validated()) {
 
             $photo = $request->all();
@@ -113,10 +114,6 @@ class PhotoController extends Controller
      */
     public function update(Request $request, Photo $photo)
     {
-        if (!Auth::user()->is_root) {
-            return redirect()->back()->with('status', 'access denied!');              
-        }
-
         if ($request->hasFile('image')) {
 
             $album = Album::find($photo->album_id);
@@ -153,10 +150,6 @@ class PhotoController extends Controller
      */
     public function destroy(Photo $photo)
     {
-        if (!Auth::user()->is_root) {
-            return redirect()->back()->with('status', 'access denied!');              
-        }
-
         if($photo->image) {
             ImagePhotoHelper::removeImagesFromStorage(TextHelper::transliterate($photo->album->title), $photo->image);
         }

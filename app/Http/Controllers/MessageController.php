@@ -62,4 +62,9 @@ class MessageController extends Controller
         session(['messageCount' => '']);
         return redirect()->route('messages')->with('info', 'table messages cleaned!'); 
     }
+
+    public function report()
+    {
+        return view('pages.site.report');
+    }
 }

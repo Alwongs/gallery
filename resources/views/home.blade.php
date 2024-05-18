@@ -2,7 +2,7 @@
 
     <section class="home-page-banner">
         <h2>Ulyanovsk</h2>
-        <a class="home-page-banner__contact-us" href="{{ route('create-message') }}">
+        <a class="home-page-banner__contact-us" href="{{ route('contact-us') }}">
             {{ __("message.contact_us") }}
         </a>
     </section>

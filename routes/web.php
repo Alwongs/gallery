@@ -22,19 +22,15 @@ use App\Http\Controllers\Admin\DashboardController;
 |
 */
 
-Route::get('/report', function () {
-    return view('pages.site.report');
-})->name('report');
-
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/contact-us', [MessageController::class, 'create'])->name('contact-us');
-Route::get('/create-message', [MessageController::class, 'create'])->name('create-message');
-Route::post('/store-message', [MessageController::class, 'store'])->name('store-message');
+
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 Route::get('/album/{id}', [GalleryController::class, 'show'])->name('album');
 Route::get('/photo/{id}', [GalleryController::class, 'showPhoto'])->name('photo');
 
-
+Route::get('/contact-us', [MessageController::class, 'create'])->name('contact-us');
+Route::post('/store-message', [MessageController::class, 'store'])->name('store-message');
+Route::post('/report', [MessageController::class, 'report'])->name('report');
 
 
 Route::middleware('auth')->group(function () {
@@ -44,12 +40,17 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile');
 
-    Route::get('/messages', [MessageController::class, 'index'])->name('messages');
-    Route::get('/clear-messages', [MessageController::class, 'clear'])->name('clear-messages');
-    Route::get('/message/{id}', [MessageController::class, 'show'])->name('message');
+    Route::middleware(['root'])->group(function () {
+        Route::get('/messages', [MessageController::class, 'index'])->name('messages');
+        Route::get('/clear-messages', [MessageController::class, 'clear'])->name('clear-messages');
+        Route::get('/message/{id}', [MessageController::class, 'show'])->name('message');
 
-    Route::resources([
-        'settings' => SettingController::class, 
+        Route::resources([
+            'settings' => SettingController::class, 
+        ]);
+    });
+
+    Route::resources([ 
         'albums'   => AlbumController::class,
         'photos'   => PhotoController::class
     ]);
