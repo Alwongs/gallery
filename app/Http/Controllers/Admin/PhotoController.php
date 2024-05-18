@@ -36,10 +36,6 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        if (!Auth::user()->is_root) {
-            return redirect()->back()->with('status', 'access denied!'); 
-        }
-
         $albums = Album::all();
 
         if (count($albums) == 0) {
@@ -103,10 +99,6 @@ class PhotoController extends Controller
      */
     public function edit(Photo $photo)
     {
-        if (!Auth::user()->is_root) {
-            return redirect()->back()->with('status', 'access denied!'); 
-        }
-
         $albums = Album::all();
 
         return view('pages/admin/photos/update', compact('albums', 'photo'));
