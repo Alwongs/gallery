@@ -21,11 +21,6 @@
 
 
 
-
-
-
-
-
                 {{-- grid template --}}
                 {{-- <ul class="gallery-list">
                     @foreach ($photos as $photo)

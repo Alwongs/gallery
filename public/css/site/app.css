@@ -433,7 +433,7 @@ a {
 @media (max-width: 767px) {
   .gallery-list {
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
   }
 }
 
@@ -590,6 +590,11 @@ a {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+@media (max-width: 767px) {
+  .blog-page-item__text {
+    padding: 0 10px;
+  }
 }
 .blog-page-item__description {
   overflow: hidden;

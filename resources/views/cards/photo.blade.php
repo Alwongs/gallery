@@ -14,7 +14,7 @@
         <div class="blog-page-item__text">
             <div class="blog-page-item__header">
                 <h3 class="blog-page-item__title">{{ $photo->title }}</h3>
-                <a class="blog-page-item__created-at" href="#">{{ $photo->created_at }}</a>
+                {{-- <a class="blog-page-item__created-at" href="#">{{ $photo->created_at }}</a> --}}
             </div>
 
             <p class="blog-page-item__description">{{ $photo->description }}</p>

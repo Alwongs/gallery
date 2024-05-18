@@ -14,7 +14,7 @@
     }           
     @media (max-width: $mobile-max) {  
         flex-direction: column; 
-        gap: 20px;
+        gap: 40px;
     }      
 }
 
@@ -194,7 +194,7 @@
                
         }           
         @media (max-width: $mobile-max) { 
-            
+            padding: 0 10px;
         }         
     }
     &__description {
