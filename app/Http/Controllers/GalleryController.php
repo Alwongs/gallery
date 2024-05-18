@@ -22,7 +22,7 @@ class GalleryController extends Controller
     public function show($id)
     {
         $album = new AlbumResource(Album::with('photos')->findOrFail($id)); 
-        $photos = Photo::where('album_id', $id)->paginate(9);
+        $photos = Photo::where('album_id', $id)->orderBy('created_at', 'desc')->paginate(Settings::getValue("site_items_per_page"));
         $breadcrumbs = Breadcrumbs::buildBreadcrumbs('album', $album->title);
 
         return view('pages/site/album', compact('album', 'photos', 'breadcrumbs'));

@@ -24,6 +24,8 @@
                     @if(isset($album)) 
                         class="input-disabled"
                         disabled
+                    @else
+                        required
                     @endif
                 />
             </div>    
@@ -43,7 +45,14 @@
             @endisset
 
             <div class="form__file-block">
-                <input id="input_file" name="image" type="file" />
+                <input 
+                    id="input_file" 
+                    name="image" 
+                    type="file"
+                    @if(!isset($album)) 
+                        required
+                    @endif
+                />
                 <p id="error" style="color: red;"></p>
             </div>  
 

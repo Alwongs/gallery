@@ -17,13 +17,13 @@
 
             <div class="form__input-block">
                 @if($albums)
-                    <select name="album_id" id="album">
-                        <option name="default" value="" style="color:grey;" >Select an album</option>
+                    <select name="album_id" id="album" required>
+                        <option value="" >Select Album</option>
                         @foreach($albums as $album)
                             @if(isset($photo) && $album->id == $photo->album_id)
-                                <option name="album_id" value="{{ $album->id }}" selected>{{ $album->title }}</option>
+                                <option value="{{ $album->id }}" selected>{{ $album->title }}</option>
                             @else
-                                <option name="album_id" value="{{ $album->id }}">{{ $album->title }}</option>
+                                <option value="{{ $album->id }}">{{ $album->title }}</option>
                             @endif
                         @endforeach
                     </select>
@@ -51,7 +51,14 @@
             @endisset
 
             <div class="form__file-block">
-                <input id="input_file" name="image" type="file" />
+                <input 
+                    id="input_file"
+                    name="image"
+                    type="file"
+                    @if(!isset($photo)) 
+                        required
+                    @endif
+                />
                 <p id="error" style="color: red;"></p>
             </div>  
 
@@ -71,5 +78,4 @@
     </main>
 
 </x-admin-layout>
-
 

@@ -19,7 +19,6 @@
 }
 
 .album-card {   
-    // box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.1);
     position: relative;
     flex: 0 1 340px;
     height: 200px;        
@@ -95,13 +94,13 @@
         margin-bottom: 20px;
     }
     &__body {
-        display: flex;
-        justify-content: space-between;
-        gap: 30px;          
-        @media (max-width: $mobile-max) {  
-            // display: block;
-              flex-direction: column;      
-        }  
+        // display: flex;
+        // justify-content: space-between;
+        // gap: 30px;          
+        // @media (max-width: $mobile-max) {  
+        //     // display: block;
+        //       flex-direction: column;      
+        // }  
     }
 
     &__image {
@@ -110,6 +109,7 @@
         flex: 0 0 450px;
         width: 450px;
         height: 300px;
+        margin: 0 auto 30px;
         overflow: hidden;
         text-align: center;
         img {
@@ -126,8 +126,120 @@
     }
 
     &__text {
-        p {
-            margin-bottom: 30px;
+        text-indent: 30px;
+        margin-bottom: 30px;
+    }
+}
+
+
+// rename to photo-page-item
+.blog-page-item {
+    // border: 1px solid red;
+    margin-bottom: 70px;
+    &__title {
+        // border: 1px solid red;
+        font-size: 22px;
+    }
+    &__content {
+        height: 300px;
+        display: flex;
+        gap: 30px;
+        @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+      
+        }     
+        @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
+               
+        }           
+        @media (max-width: $mobile-max) {  
+            flex-direction: column;  
+            width: 100%;
+            height: fit-content;
+        }  
+    }
+    &__image {
+        background-color: lightgrey;
+        flex: 0 0 450px;
+        text-align: center;
+        height: 100%;
+        @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+      
+        }     
+        @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
+               
+        }           
+        @media (max-width: $mobile-max) { 
+            flex: none;
+        } 
+        img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+    }
+    &__header {
+        // border: 1px solid blue;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+    &__text {
+        position: relative;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+      
+        }     
+        @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
+               
+        }           
+        @media (max-width: $mobile-max) { 
+            
+        }         
+    }
+    &__description {
+        // border: 1px solid blue;
+        overflow: hidden;
+        height: 100%;
+        @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+      
+        }     
+        @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
+               
+        }           
+        @media (max-width: $mobile-max) { 
+            flex: 0 0 110px;
+        }   
+    }
+    &__author {
+        font-size: 12px;
+        color: rgb(158, 63, 63);
+    }
+    &__created-at {
+        font-size: 10px;
+        opacity: 0.7;
+    }
+    &__footer {
+        // border: 1px solid blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        opacity: 0;
+        transition: 0.4s;
+        color: $baseText;
+        font-weight: 600;
+        font-style: italic;
+        font-size: 20px;
+        border: 3px solid $baseText;
+        &:hover {
+            opacity: 0.8;
+
         }
     }
 }

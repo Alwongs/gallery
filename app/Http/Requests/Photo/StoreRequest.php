@@ -24,17 +24,19 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
+            'album_id'     => ['required'],
             'title'        => ['required', 'string', 'max:255'],
             'description'  => ['nullable', 'string'],
             'image'        => ['nullable', 'image:jpg,jpeg,png,webp', 'max:3000']
         ];
     }
 
-    // public function messages()
-    // {
-    //     return [
-    //         'post.required' => 'Request validation: A title is required',
-    //         'image.image:jpg,jpeg,png,webp' => 'Request validation: An extension is not permited',
-    //     ];
-    // }    
+    public function messages()
+    {
+        return [
+            'album_id.required' => 'The album field is required',
+            'image.image:jpg,jpeg,png,webp' => 'Request validation: An extension is not permited',
+            'image.max:3000' => 'Max image size is 3000Kb'
+        ];
+    }    
 }
