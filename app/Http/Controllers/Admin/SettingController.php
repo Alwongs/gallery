@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
 
 class SettingController extends Controller
 {
@@ -72,6 +73,10 @@ class SettingController extends Controller
      */
     public function update(Request $request, $notUsed)
     {
+        if (!Auth::user()->is_root) {
+            return redirect()->back()->with('status', 'access denied!');              
+        }
+
         $settings = Setting::all();
         $requestSettings = $request->settings;
 

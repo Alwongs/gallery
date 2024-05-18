@@ -20,38 +20,36 @@
             
             <a href="{{ route('dashboard') }}">Dashboard</a>
 
-            @if (Auth::user()->is_root)
-                <a href="{{ route('albums.index') }}">
-                    <span>Albums</span>
-                    @if(Session::get('albumCount'))
-                        <span style="color:green;fomt-weight:600;">
-                            {{ Session::get('albumCount')}}
-                        </span>
-                    @endif 
-                </a>
+            <a href="{{ route('albums.index') }}">
+                <span>Albums</span>
+                @if(Session::get('albumCount'))
+                    <span style="color:green;fomt-weight:600;">
+                        {{ Session::get('albumCount')}}
+                    </span>
+                @endif 
+            </a>
 
-                <a href="{{ route('photos.index') }}">
-                    <span>Photos</span>
-                    @if(Session::get('photoCount'))
-                        <span style="color:green;fomt-weight:600;">
-                            {{ Session::get('photoCount')}}
-                        </span>
-                    @endif                      
-                </a>
+            <a href="{{ route('photos.index') }}">
+                <span>Photos</span>
+                @if(Session::get('photoCount'))
+                    <span style="color:green;fomt-weight:600;">
+                        {{ Session::get('photoCount')}}
+                    </span>
+                @endif                      
+            </a>
 
-                <a href="{{ route('messages') }}">
-                    <span>Messages </span>
-                    @if(Session::get('messageCount'))
-                        <span style="color:green;fomt-weight:600;">
-                            {{ Session::get('messageCount')}}
-                        </span>
-                    @endif
-                </a>   
+            <a href="{{ route('messages') }}">
+                <span>Messages </span>
+                @if(Session::get('messageCount'))
+                    <span style="color:green;fomt-weight:600;">
+                        {{ Session::get('messageCount')}}
+                    </span>
+                @endif
+            </a>   
 
-                <a href="{{ route('settings.index') }}">
-                    <span>Settings</span>                       
-                </a>
-            @endif
+            <a href="{{ route('settings.index') }}">
+                <span>Settings</span>                       
+            </a>
         </nav>
     </div>
     @endauth

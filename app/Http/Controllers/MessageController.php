@@ -32,7 +32,8 @@ class MessageController extends Controller
         return view('pages/site/contact_us', compact('breadcrumbs'));
     }
 
-    public function store(StoreRequest $request) {
+    public function store(StoreRequest $request)
+    {
         if ($request->validated()) {
 
             $message = $request->all();
@@ -51,7 +52,12 @@ class MessageController extends Controller
         }
     }
 
-    public function clear() {
+    public function clear()
+    {
+        if (!Auth::user()->is_root) {
+            return redirect()->back()->with('status', 'access denied!');              
+        }
+
         DB::table('messages')->truncate();
         session(['messageCount' => '']);
         return redirect()->route('messages')->with('info', 'table messages cleaned!'); 

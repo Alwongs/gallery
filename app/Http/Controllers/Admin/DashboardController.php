@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 use File;
 
 class DashboardController extends Controller
@@ -43,19 +44,23 @@ class DashboardController extends Controller
 
     public function removeAlbumsAndPhotos()
     {
-        DB::statement("SET foreign_key_checks=0");
-        Album::truncate();
-        Photo::truncate();
-        DB::statement("SET foreign_key_checks=1");
-
-        if (File::exists(Storage::path('albums'))) {
-            File::deleteDirectory(Storage::path('albums'));
+        if (!Auth::user()->is_root) {
+            return redirect()->back()->with('status', 'access denied!'); 
         }
 
-        if (File::exists(Storage::path('photos'))) {
-            File::deleteDirectory(Storage::path('photos'));
-        }
+        // DB::statement("SET foreign_key_checks=0");
+        // Album::truncate();
+        // Photo::truncate();
+        // DB::statement("SET foreign_key_checks=1");
 
-        return redirect()->route("dashboard");
+        // if (File::exists(Storage::path('albums'))) {
+        //     File::deleteDirectory(Storage::path('albums'));
+        // }
+
+        // if (File::exists(Storage::path('photos'))) {
+        //     File::deleteDirectory(Storage::path('photos'));
+        // }
+
+        // return redirect()->route("dashboard");
     }
 }

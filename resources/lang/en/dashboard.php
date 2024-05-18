@@ -2,6 +2,6 @@
 
 return [
     'dashboard' => 'Dashboard',
-    'remove_albums' => 'Remove all albums',
+    'remove_albums_posts' => 'Remove all albums and posts',
     'actions' => 'Actions'
 ];

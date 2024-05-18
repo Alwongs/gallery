@@ -977,14 +977,14 @@ select {
   font-weight: 500;
 }
 .dashboard-actions__action {
-  background-color: rgb(255, 207, 207);
+  background-color: rgb(250, 218, 218);
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.4);
-  border: 1px solid red;
+  border: 1px solid rgb(255, 99, 99);
   border-radius: 5px;
   width: 100px;
   height: 100px;
   padding: 5px;
-  color: rgb(124, 30, 30);
+  color: rgb(173, 87, 87);
   font-size: 16px;
   cursor: pointer;
   transition: 0.1s;
