@@ -25,7 +25,7 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        $photos = Photo::orderBy('created_at', 'desc')->paginate(Settings::getValue("admin_items_per_page"));
+        $photos = Photo::orderBy('album_id', 'desc')->paginate(Settings::getValue("admin_items_per_page"));
         return view('pages/admin/photos/manage', compact('photos'));
     }
 

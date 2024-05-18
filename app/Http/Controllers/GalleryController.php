@@ -13,7 +13,7 @@ class GalleryController extends Controller
 {
     public function index()
     {
-        $albums = Album::orderBy('created_at', 'desc')->paginate(Settings::getValue("site_items_per_page"));
+        $albums = Album::orderBy('created_at', 'asc')->paginate(Settings::getValue("site_items_per_page"));
         $breadcrumbs = Breadcrumbs::buildBreadcrumbs('albums');
 
         return view('pages/site/albums', compact('albums', 'breadcrumbs'));
