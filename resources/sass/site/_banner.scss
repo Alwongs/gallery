@@ -63,6 +63,8 @@
 
 .page-banner {
     background-image: url('../../images/banners/page-banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     position: relative;
     overflow: hidden;
     height: 200px;
