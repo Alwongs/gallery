@@ -10,6 +10,7 @@ class ImageHelper
 {
     const RESOLUTIONS = [
         "previews/" => [450, 300],
+        "previews_small/" => [300, 200],
         "icons/" => [60, 40],
     ];
 
