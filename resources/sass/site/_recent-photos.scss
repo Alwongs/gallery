@@ -1,5 +1,5 @@
 .recent-photos-block {
-    // border: 1px solid red;
+
     list-style: none;
     display: flex;
     justify-content: center;
@@ -18,8 +18,9 @@
     }      
 }
 
-.photo-card {    
-    border-radius: 10px;
+.photo-card {   
+
+    // border-radius: 10px;
     flex: 0 1 250px;
     padding: 10px;
     @media (min-width: $desktop-min) and (max-width: $desktop-max) {
@@ -69,6 +70,7 @@
         }  
     }
     &__image {
+        border: 1px solid red; 
         background-color: lightgrey;
         border: 1px solid rgba($baseText, .1);
         width: 100%;

@@ -439,8 +439,8 @@ a {
 
 .album-card {
   position: relative;
-  flex: 0 1 340px;
-  height: 200px;
+  flex: 0 1 450px;
+  height: 300px;
 }
 @media (max-width: 767px) {
   .album-card {
@@ -1246,7 +1246,6 @@ select {
 }
 
 .photo-card {
-  border-radius: 10px;
   flex: 0 1 250px;
   padding: 10px;
 }
@@ -1299,6 +1298,7 @@ select {
   }
 }
 .photo-card__image {
+  border: 1px solid red;
   background-color: lightgrey;
   border: 1px solid rgba(0, 83, 118, 0.1);
   width: 100%;

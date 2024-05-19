@@ -11,23 +11,35 @@
         font-size: 18px;
         font-weight: 500;
     }
+    &__body {
+        display: flex;
+        gap: 30px;
+    }
     &__action {
         background-color: rgb(250, 218, 218);
         box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.4); 
         border: 1px solid rgb(255, 99, 99);
+        color: rgb(173, 87, 87);
         border-radius: 5px;
         width: 100px;
         height: 100px;
         padding: 5px;
-        color: rgb(173, 87, 87);
         font-size: 16px;
         cursor: pointer;
         transition: 0.1s;
         &:hover {
-            background-color: rgb(255, 221, 221);
+            background-color: rgb(255, 226, 226);
         }
         &:focus { 
             box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.4); 
+        }
+        &.bg-green {
+            background-color: rgb(218, 250, 234);
+            border: 1px solid rgb(75, 187, 99);
+            color: rgb(71, 146, 81);
+            &:hover {
+                background-color: rgb(231, 253, 237);
+            }
         }
     }
 }

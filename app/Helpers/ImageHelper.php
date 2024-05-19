@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Helpers\TextHelper;
 use File;
 
-abstract class ImageHelper
+class ImageHelper
 {
     const RESOLUTIONS = [
         "previews/" => [450, 300],

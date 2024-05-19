@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::delete('/dashboard/remove-albums', [DashboardController::class, 'removeAlbumsAndPhotos'])->name('remove-albums');
+    Route::post('/dashboard/add-new-thumbnails', [DashboardController::class, 'makeNewThumbnails'])->name('add-new-thumbnails');
 
     Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile');
 

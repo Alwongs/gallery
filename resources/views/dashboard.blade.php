@@ -13,6 +13,7 @@
                 {{ __("dashboard.actions") }}
             </h2>
             <ul class="dashboard-actions__body">
+
                 <li class="dashboard-actions__item">
                     <form action="{{ route('remove-albums') }}" method="POST">
                         @csrf
@@ -22,6 +23,16 @@
                         </button>
                     </form>
                 </li>
+
+                <li class="dashboard-actions__item">
+                    <form action="{{ route('add-new-thumbnails') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="dashboard-actions__action bg-green" onclick="confirm('Are you ready ti create new thumbnails!')">
+                            {{ __("dashboard.add_new_thumbnails") }}
+                        </button>
+                    </form>
+                </li>
+
             </ul>
 
         </section>

@@ -976,22 +976,34 @@ select {
   font-size: 18px;
   font-weight: 500;
 }
+.dashboard-actions__body {
+  display: flex;
+  gap: 30px;
+}
 .dashboard-actions__action {
   background-color: rgb(250, 218, 218);
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.4);
   border: 1px solid rgb(255, 99, 99);
+  color: rgb(173, 87, 87);
   border-radius: 5px;
   width: 100px;
   height: 100px;
   padding: 5px;
-  color: rgb(173, 87, 87);
   font-size: 16px;
   cursor: pointer;
   transition: 0.1s;
 }
 .dashboard-actions__action:hover {
-  background-color: rgb(255, 221, 221);
+  background-color: rgb(255, 226, 226);
 }
 .dashboard-actions__action:focus {
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.4);
+}
+.dashboard-actions__action.bg-green {
+  background-color: rgb(218, 250, 234);
+  border: 1px solid rgb(75, 187, 99);
+  color: rgb(71, 146, 81);
+}
+.dashboard-actions__action.bg-green:hover {
+  background-color: rgb(231, 253, 237);
 }
