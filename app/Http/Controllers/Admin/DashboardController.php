@@ -34,8 +34,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        // session(["settings" => Setting::orderBy('area', 'asc')->get()]);
-
         $messageCount = Message::count();
         $userCount = User::count();
         $albumCount = Album::count();
@@ -68,31 +66,35 @@ class DashboardController extends Controller
         // }
 
         // return redirect()->route("dashboard");
+
+        return redirect()->route('dashboard')->with('status', 'method removeAlbumsAndPhotos is commented!'); 
     }
 
 
     public function makeNewThumbnails()
     {
-        $resolution = [300, 200];
-        $photos = Photo::all();
+        // $resolution = [600, 400];
+        // $photos = Photo::all();
 
-        foreach ($photos as $photo) {
+        // foreach ($photos as $photo) {
 
-            $albumTitle = TextHelper::transliterate($photo->album->title);
+        //     $albumTitle = TextHelper::transliterate($photo->album->title);
 
-            $originalPath = 'photos/' . $albumTitle. '/originals/';
+        //     $originalPath = 'photos/' . $albumTitle. '/originals/';
 
-            if (!empty($photo->image) && File::exists(Storage::path($originalPath) . $photo->image)) {
+        //     if (!empty($photo->image) && File::exists(Storage::path($originalPath) . $photo->image)) {
 
-                $imageFile = Image::make(Storage::path($originalPath) . $photo->image);
-                $imageFile->fit($resolution[0], $resolution[1]);
+        //         $imageFile = Image::make(Storage::path($originalPath) . $photo->image);
+        //         $imageFile->fit($resolution[0], $resolution[1]);
 
-                $thumbnailPath = 'photos/' . $albumTitle . '/previews_small/';
+        //         $thumbnailPath = 'photos/' . $albumTitle . '/previews_small/';
 
-                ImageHelper::storeResized($imageFile, $thumbnailPath, $photo->image);
-            } 
-        }
+        //         ImageHelper::storeResized($imageFile, $thumbnailPath, $photo->image);
+        //     } 
+        // }
 
-        return redirect()->route('dashboard')->with('info', 'Success, thumbnails added!'); 
+        // return redirect()->route('dashboard')->with('info', 'Success, thumbnails added!'); 
+
+        return redirect()->route('dashboard')->with('status', 'method makeNewThumbnails is commented!'); 
     }
 }

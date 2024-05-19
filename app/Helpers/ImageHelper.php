@@ -8,16 +8,9 @@ use File;
 
 class ImageHelper
 {
-    const RESOLUTIONS = [
-        "previews/" => [450, 300],
-        "previews_small/" => [300, 200],
-        "icons/" => [60, 40],
-    ];
-
-    // call diff funcs to make some thumbnails
     public static function makeAndStoreThumbnails($image, $albumDirName = '', $newImageName)
     {
-        foreach (self::RESOLUTIONS as $dirName => $res) {
+        foreach (static::RESOLUTIONS as $dirName => $res) {
 
             if (empty($albumDirName)) {
                 $path = static::DIR_OBJECT . $dirName;
@@ -41,7 +34,7 @@ class ImageHelper
 
     public static function removeImagesFromStorage($albumTitle = '', $imageName)
     {
-        $thumbnailDirs = array_keys(self::RESOLUTIONS);
+        $thumbnailDirs = array_keys(static::RESOLUTIONS);
         array_push($thumbnailDirs, "originals");
 
         foreach ($thumbnailDirs as $thumbnailDir) {

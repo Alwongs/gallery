@@ -9,6 +9,11 @@ class ImageAlbumHelper extends ImageHelper
 {
     const DIR_OBJECT = "albums/";
 
+    const RESOLUTIONS = [
+        "previews/" => [450, 300],
+        "icons/" => [60, 40],
+    ];
+
     public static function storeImage($image, $albumTitle, $newImageName)
     {
         $image->storeAs(self::DIR_OBJECT . 'originals', $newImageName);
