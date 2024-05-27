@@ -586,8 +586,13 @@ a {
   transition: 0.2s;
   font-size: 18px;
 }
+.aside-navigation a.active {
+  background-color: #2b6e8d;
+  color: white;
+}
 .aside-navigation a:hover {
-  background-color: rgb(184, 220, 230);
+  background-color: #2b6e8d;
+  color: white;
 }
 
 .btn {
@@ -986,9 +991,9 @@ select {
   border: 1px solid rgb(255, 99, 99);
   color: rgb(173, 87, 87);
   border-radius: 5px;
-  width: 100px;
-  height: 100px;
-  padding: 5px;
+  width: 170px;
+  height: 80px;
+  padding: 5px 15px;
   font-size: 16px;
   cursor: pointer;
   transition: 0.1s;

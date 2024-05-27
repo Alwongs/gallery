@@ -2,10 +2,6 @@
 
     <div class="container">
 
-        <header class="header">
-            <h1>{{ __("dashboard.dashboard") }}</h1>
-        </header>
-
         @include('includes.common.notification')
 
         <section class="section dashboard-actions">
@@ -19,7 +15,7 @@
                         @csrf
                         @method('delete')
                         <button type="submit" class="dashboard-actions__action" onclick="confirm('All Albums and Photos will be removed from database and file system!')">
-                            {{ __("dashboard.remove_albums_posts") }}
+                            {{ __("dashboard.remove_albums_photos") }}
                         </button>
                     </form>
                 </li>

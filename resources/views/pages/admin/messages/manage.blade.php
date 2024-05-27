@@ -1,9 +1,6 @@
 <x-admin-layout>
 
     @if(Auth::id() == 1)
-        <header class="header">
-            <h1>{{ __('Messages') }}</h1>
-        </header>
 
         <main class="main">
 

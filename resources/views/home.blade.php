@@ -1,9 +1,9 @@
 <x-site-layout>
 
     <section class="home-page-banner">
-        <h2>Ulyanovsk</h2>
+        <h2>{{ __("common.ulyanovsk") }}</h2>
         <a class="home-page-banner__contact-us" href="{{ route('contact-us') }}">
-            {{ __("message.contact_us") }}
+            {{ __("btn.contact_us") }}
         </a>
     </section>
 

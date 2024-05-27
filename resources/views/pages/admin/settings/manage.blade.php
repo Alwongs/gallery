@@ -6,9 +6,6 @@
 @endphp
 
 <x-admin-layout>
-    <header class="header">
-        <h1>{{ __('settings.settings') }}</h1>
-    </header>
 
     <main class="main">
         <form class="form" action="{{ route('settings.update', 1) }}" method="POST">

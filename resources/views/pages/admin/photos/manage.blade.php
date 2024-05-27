@@ -1,7 +1,4 @@
 <x-admin-layout>
-    <header class="header">
-        <h1>{{ __('gallery.photos') }}</h1>
-    </header>
 
     <main class="main">
 

@@ -59,8 +59,13 @@
         border-bottom: 1px solid rgb(100, 146, 160);
         transition: 0.2s;
         font-size: 18px;
+        &.active {
+            background-color: #2b6e8d;
+            color: white; 
+        }  
     }
     a:hover {
-        background-color: rgb(184, 220, 230);        
+        background-color: #2b6e8d; 
+        color: white;      
     }
 }

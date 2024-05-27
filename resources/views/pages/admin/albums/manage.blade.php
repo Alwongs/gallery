@@ -1,7 +1,4 @@
 <x-admin-layout>
-    <header class="header">
-        <h1>{{ __('Albums') }}</h1>
-    </header>
 
     <main class="main">
 

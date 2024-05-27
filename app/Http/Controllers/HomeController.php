@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Setting;
 use App\Models\Photo;
+use Illuminate\Support\Facades\App;
 
 class HomeController extends Controller
 {
@@ -24,5 +25,12 @@ class HomeController extends Controller
         $photos = Photo::take(6)->get();
 
         return view('home', compact('photos'));
+    }
+
+    public function changeLocale($locale)
+    {
+        session(['locale' => $locale]);
+        App::setLocale($locale);
+        return redirect()->back();
     }
 }

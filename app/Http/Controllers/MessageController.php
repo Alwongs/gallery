@@ -17,13 +17,13 @@ class MessageController extends Controller
     public function index()
     {
         $messages = Message::all();
-        return view('pages/admin/users/messages', compact('messages'));
+        return view('pages/admin/messages/manage', compact('messages'));
     }
 
     public function show($id)
     {
         $message = Message::find($id);
-        return view('pages/admin/users/message', compact('message'));
+        return view('pages/admin/messages/detail', compact('message'));
     }
 
     public function create()

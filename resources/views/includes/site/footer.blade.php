@@ -1,3 +1,7 @@
+@php
+    $currentRouteName = Illuminate\Support\Facades\Route::currentRouteName()
+@endphp
+
 <footer class="footer">
     <div class="footer__row container">
         <div class="footer__col">
@@ -5,15 +9,15 @@
         </div>
 
         <div class="footer__col">
-            @if ( Illuminate\Support\Facades\Route::currentRouteName() != 'contact-us')
+            @if ( $currentRouteName != 'contact-us')
                 <a class="contact-us" href="{{ route('contact-us') }}">
-                    Contact us
+                    {{ __("btn.contact_us") }}
                 </a>
             @endif
         </div>
 
         <div class="footer__col footer-contacts">
-            <p>Developed by Alex Wong 2024</p>
+            <p>{{ __("common.developed_by") }}</p>
         </div>
     </div>
 </footer>

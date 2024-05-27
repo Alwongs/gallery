@@ -10,18 +10,18 @@ class Breadcrumbs
 
             case 'albums':
                 return [
-                    ['route' => '', 'value' => 'albums'],
+                    ['route' => '', 'value' => __("gallery.albums")],
                 ];
 
             case 'album':
                 return [
-                    ['route' => route('gallery'), 'value' => 'albums'],
+                    ['route' => route('gallery'), 'value' => __("gallery.albums")],
                     ['route' => '', 'value' => $title]
                 ];
 
             case 'photo':
                 return[
-                    ['route' => route('gallery'), 'value' => 'albums'],
+                    ['route' => route('gallery'), 'value' => __("gallery.albums")],
                     ['route' => route('album', $id), 'value' => $title]
                 ];
 

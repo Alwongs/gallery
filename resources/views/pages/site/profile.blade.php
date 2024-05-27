@@ -13,7 +13,7 @@
 
             <div class="btn-block">
                 @if(Auth::user()->type == 'A')
-                    <a class="btn" href="{{ route('dashboard') }}">Dashboard</a>
+                    <a class="btn" href="{{ route('dashboard') }}">{{ __("common.admin_panel") }}</a>
                 @endif
             </div>
         </div>
