@@ -7,6 +7,7 @@ return [
     'ulyanovsk' => 'Ulyanovsk',
     'array_is_empty' => 'List is empty..',
     'home' => 'Home',
+    'read_more' => 'Read more',
     'website' => 'Website',
     'you_are_here' => 'You are here',
     'developed_by' => 'Developed by Alex Wong 2024',
