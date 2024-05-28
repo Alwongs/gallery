@@ -31,9 +31,9 @@
             <div style="position:relative;overflow:hidden;">
                 <a 
                     href="https://yandex.ru/maps/195/ulyanovsk/?utm_medium=mapframe&utm_source=maps" 
-                    style="color:#eee;font-size:12px;position:absolute;top:0px;"
+                    style="color:#eee;font-size:12px;position:absolute;top:0px;text-decoration:none"
                 >
-                    Ульяновск
+                    {{ __("common.ulyanovsk") }}
                 </a>
                 <a 
                     href="https://yandex.ru/maps/195/ulyanovsk/?ll=48.403131%2C54.314194&utm_medium=mapframe&utm_source=maps&z=14" 
