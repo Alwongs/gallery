@@ -12,5 +12,6 @@ return [
     'you_are_here' => 'Вы здесь',
     'developed_by' => 'Разработано Alex Wong 2024',
     'request_error' => 'Ошибка запроса',
-    'admin_panel' => 'Админ панель'
+    'admin_panel' => 'Админ панель',
+    'recent-photos' => 'Новые фото'
 ];
