@@ -23,6 +23,9 @@
                     {{ $photo->description }}
                 </div>
             </div>
+            <div class="text-container">
+                @include('blocks.comments')
+            </div>
         </div>
     </section>
 

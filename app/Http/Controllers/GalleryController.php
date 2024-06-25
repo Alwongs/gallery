@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Resources\AlbumResource;
 use App\Models\Album;
 use App\Models\Photo;
+use App\Models\Comment;
 use App\Helpers\Breadcrumbs;
 use App\Helpers\Settings;
 
@@ -31,8 +32,9 @@ class GalleryController extends Controller
     public function showPhoto($id)
     {
         $photo = Photo::with('album')->orderBy('created_at', 'desc')->findOrFail($id);
+        $comments = Comment::where('photo_id', $id)->orderBy('created_at', 'desc')->get();
         $breadcrumbs = Breadcrumbs::buildBreadcrumbs('photo', $photo->album->title, $photo->album->id);
 
-        return view('pages/site/photo', compact('photo', 'breadcrumbs'));
+        return view('pages/site/photo', compact('photo', 'breadcrumbs', 'comments'));
     }
 }

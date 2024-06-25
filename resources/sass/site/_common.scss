@@ -19,6 +19,10 @@ html {
     scroll-behavior: smooth;
 }
 
+button {
+    cursor: pointer;
+}
+
 .wrapper {
     min-height: 100vh;
     display: flex;

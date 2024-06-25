@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\AlbumController;
@@ -33,6 +34,10 @@ Route::middleware(['set_locale'])->group(function () {
     Route::get('/contact-us', [MessageController::class, 'create'])->name('contact-us');
     Route::post('/store-message', [MessageController::class, 'store'])->name('store-message');
     Route::post('/report', [MessageController::class, 'report'])->name('report');
+
+    Route::resources([ 
+        'comments' => CommentController::class,
+    ]);
     
     
     Route::middleware('auth')->group(function () {
