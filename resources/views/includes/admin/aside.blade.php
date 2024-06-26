@@ -46,6 +46,13 @@
                 </a>
 
                 <a 
+                    href="{{ route('comments.index') }}"
+                    @if (in_array($currentRouteName, ['comments.index', 'comments.create', 'comments.edit'])) class="active" @endif                     
+                >
+                    {{ __("gallery.comments") }}                   
+                </a>                
+
+                <a 
                     href="{{ route('messages') }}"
                     @if (in_array($currentRouteName, ['messages', 'message'])) class="active" @endif                     
                 >
