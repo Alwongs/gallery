@@ -33,7 +33,12 @@ Route::middleware(['set_locale'])->group(function () {
     
     Route::get('/contact-us', [MessageController::class, 'create'])->name('contact-us');
     Route::post('/store-message', [MessageController::class, 'store'])->name('store-message');
-    Route::post('/report', [MessageController::class, 'report'])->name('report');
+    Route::delete('/destroy-message/{id}', [MessageController::class, 'destroy'])->name('destroy-message');
+
+
+
+   
+    Route::get('/report', [MessageController::class, 'report'])->name('report');
 
     Route::resources([ 
         'comments' => CommentController::class,

@@ -22,7 +22,9 @@
                     </div> 
 
                     <div class="manage-list__item-ip" title="">
-                        {{ $message->name }}
+                        <a href="{{ route('message', $message->id) }}">
+                            {{ $message->name }}
+                        </a>
                     </div>   
 
                     <div class="manage-list__item-ip" title="">
@@ -33,8 +35,11 @@
                         {{ $message->city }}
                     </div> 
 
-                    <a href="{{ route('message', $message->id) }}">Look</a>
-
+                    <form action="{{ route('destroy-message', $message->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="cell-btn btn-icon-delete"></button> 
+                    </form>   
                 </li>        
                 @endforeach
             </ul>          

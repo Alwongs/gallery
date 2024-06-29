@@ -107,18 +107,51 @@ a {
   justify-content: center;
 }
 
-.notification {
-  border: 1px solid rgb(202, 133, 133);
-  background-color: rgb(230, 211, 211);
-  border-radius: 3px;
-  max-width: 900px;
-  min-width: 320px;
-  min-height: 35px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 10px;
+.notification-block {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 30px;
+  justify-content: center;
 }
 
+.notification {
+  box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: center;
+  padding: 10px 30px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 50%;
+  animation-name: dissapear;
+  animation-duration: 8s;
+  opacity: 0;
+}
+.notification.error {
+  border: 1px solid rgb(202, 133, 133);
+  background-color: rgb(255, 219, 219);
+  color: rgb(207, 0, 0);
+}
+.notification.info {
+  border: 1px solid rgb(133, 202, 164);
+  background-color: rgb(219, 255, 235);
+  color: rgb(0, 122, 55);
+}
+
+@keyframes dissapear {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .migration-report-list {
   border: 1px solid rgba(0, 83, 118, 0.3);
   box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.3);

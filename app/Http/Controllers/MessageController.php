@@ -67,4 +67,11 @@ class MessageController extends Controller
     {
         return view('pages.site.report');
     }
+
+    public function destroy($id)
+    {
+        Message::find($id)->delete();
+
+        return redirect()->back()->with('info', 'Message deleted');
+    }
 }
