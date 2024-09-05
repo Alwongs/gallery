@@ -22,7 +22,7 @@
                     </div> 
 
                     <div class="manage-list__item-ip" title="">
-                        <a href="{{ route('message', $message->id) }}">
+                        <a href="{{ route('message', $message->id) }}" title="{{ $message->message }}">
                             {{ $message->name }}
                         </a>
                     </div>   
